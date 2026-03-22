@@ -79,12 +79,21 @@
       margin-bottom: 48px;
     }
 
-    .logo-hero-mark {
+    .logo-hero-mark-container {
       width: 340px;
-      height: auto;
+      height: 340px;
       margin-bottom: 64px;
-      filter: drop-shadow(0 0 80px rgba(37,99,235,0.15));
+      background: #F8FAFC;
+      border-radius: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 120px rgba(37,99,235,0.2), 0 20px 60px rgba(0,0,0,0.3);
       animation: heroFloat 6s ease-in-out infinite;
+    }
+    .logo-hero-mark {
+      width: 260px;
+      height: auto;
     }
 
     @keyframes heroFloat {
@@ -237,7 +246,12 @@
     }
 
     .logo-showcase-preview.dark-bg {
-      background: var(--bg-base);
+      background: linear-gradient(135deg, #0F172A 0%, #0A0E1A 100%);
+    }
+    .logo-showcase-preview.dark-bg img {
+      background: #F8FAFC;
+      padding: 24px;
+      border-radius: 16px;
     }
     .logo-showcase-preview.light-bg {
       background: #FFFFFF;
@@ -289,6 +303,9 @@
       height: auto;
       position: relative;
       z-index: 2;
+      background: #F8FAFC;
+      padding: 20px;
+      border-radius: 12px;
     }
     .clearspace-box {
       position: absolute;
@@ -385,7 +402,7 @@
     }
 
     .variation-card-preview {
-      background: var(--bg-base);
+      background: #F8FAFC;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -608,9 +625,14 @@
       margin-top: 4px;
     }
 
-    /* Dark navy bg */
+    /* Dark navy bg — logo needs light container */
     .app-dark {
       background: #0A0E1A;
+    }
+    .app-dark img {
+      background: #F8FAFC;
+      padding: 16px;
+      border-radius: 12px;
     }
     /* White bg */
     .app-light {
@@ -621,7 +643,10 @@
       background: linear-gradient(135deg, #0A0E1A 0%, #0A3D91 50%, #2563EB 100%);
     }
     .app-gradient img {
-      filter: brightness(1.1) drop-shadow(0 4px 20px rgba(0,0,0,0.4));
+      background: rgba(248,250,252,0.95);
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     }
     /* Circle crop (avatar) */
     .app-avatar {
@@ -636,7 +661,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--bg-void);
+      background: #F8FAFC;
     }
     .avatar-circle img {
       width: 70%;
@@ -644,7 +669,11 @@
     }
     /* Favicon size */
     .app-favicon {
-      background: var(--bg-base);
+      background: #F8FAFC;
+    }
+    .favicon-item img {
+      background: transparent !important;
+      padding: 0 !important;
     }
     .favicon-sizes {
       display: flex;
@@ -680,6 +709,9 @@
     .app-pattern img {
       position: relative;
       z-index: 1;
+      background: #F8FAFC;
+      padding: 12px;
+      border-radius: 10px;
     }
 
     /* === DO/DONT (Section 06) === */
@@ -701,7 +733,7 @@
       justify-content: center;
       padding: 40px;
       min-height: 180px;
-      background: var(--bg-surface);
+      background: #F8FAFC;
     }
     .dodont-preview img {
       max-width: 120px;
@@ -899,7 +931,9 @@
     <img src="assets/logo/shadow-main.png" alt="" class="logo-hero-ambient" aria-hidden="true">
     <div class="logo-hero-content">
       <p class="logo-hero-label">Identidade Visual</p>
-      <img src="assets/logo/logo-mark.png" alt="Monograma LH — Luiz Henrique" class="logo-hero-mark" width="340" height="340">
+      <div class="logo-hero-mark-container">
+        <img src="assets/logo/logo-mark.png" alt="Monograma LH — Luiz Henrique" class="logo-hero-mark">
+      </div>
       <h1 class="logo-hero-title">Luiz <strong>Henrique</strong></h1>
       <p class="logo-hero-subtitle">Arquiteto de Operacoes Inteligentes</p>
     </div>
