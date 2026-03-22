@@ -11,175 +11,162 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Montserrat', sans-serif; background: #050508; color: #F8FAFC; }
     .container { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+    h1 { font-size: 36px; font-weight: 900; text-align: center; margin-bottom: 8px; }
+    .subtitle { text-align: center; color: #64748B; font-size: 14px; margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
 
-    h1 { font-size: 40px; font-weight: 900; text-align: center; margin-bottom: 8px; }
-    .subtitle { text-align: center; color: #64748B; font-size: 15px; margin-bottom: 60px; }
+    .concepts { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; margin-bottom: 80px; }
+    @media (max-width: 900px) { .concepts { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; } }
 
-    .concepts { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
-    @media (max-width: 768px) { .concepts { grid-template-columns: 1fr; } }
-
-    .concept {
-      background: #0A0E1A;
-      border: 1px solid rgba(37,99,235,0.15);
-      border-radius: 20px;
-      overflow: hidden;
-    }
-    .concept-header {
-      padding: 20px 24px;
-      border-bottom: 1px solid rgba(37,99,235,0.1);
-    }
-    .concept-label {
-      font-size: 10px; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: #06B6D4; margin-bottom: 6px;
-    }
-    .concept-name { font-size: 20px; font-weight: 800; }
+    .concept { background: #0A0E1A; border: 1px solid rgba(37,99,235,0.12); border-radius: 20px; overflow: hidden; }
+    .concept-header { padding: 20px 24px; border-bottom: 1px solid rgba(37,99,235,0.08); }
+    .concept-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #06B6D4; margin-bottom: 4px; }
+    .concept-name { font-size: 22px; font-weight: 800; }
     .concept-desc { font-size: 12px; color: #64748B; margin-top: 4px; line-height: 1.5; }
 
-    .preview-row {
-      display: grid; grid-template-columns: 1fr 1fr;
-    }
-    .preview-cell {
-      display: flex; align-items: center; justify-content: center;
-      padding: 40px 20px; position: relative;
-    }
+    .preview-row { display: grid; grid-template-columns: 1fr 1fr; }
+    .preview-cell { display: flex; align-items: center; justify-content: center; padding: 36px 16px; position: relative; }
     .preview-cell.dark { background: #0A0E1A; }
     .preview-cell.light { background: #F8FAFC; }
-    .preview-cell img { width: 120px; height: 120px; }
-    .preview-label {
-      position: absolute; top: 8px; left: 12px;
-      font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: #334155;
-    }
+    .preview-cell img { width: 110px; height: 110px; }
+    .cell-label { position: absolute; top: 8px; left: 12px; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #334155; }
 
-    .sizes {
-      display: flex; align-items: flex-end; justify-content: center;
-      gap: 24px; padding: 24px; border-top: 1px solid rgba(37,99,235,0.1);
-    }
+    .sizes { display: flex; align-items: flex-end; justify-content: center; gap: 20px; padding: 20px; border-top: 1px solid rgba(37,99,235,0.08); }
     .size-item { text-align: center; }
-    .size-item img { display: block; margin: 0 auto 6px; }
-    .size-item span { font-size: 10px; color: #334155; }
+    .size-item img { display: block; margin: 0 auto 4px; }
+    .size-item span { font-size: 9px; color: #334155; }
 
-    .lockup {
-      display: flex; align-items: center; justify-content: center;
-      gap: 16px; padding: 28px 20px;
-      border-top: 1px solid rgba(37,99,235,0.1);
-      background: #0F172A;
-    }
-    .lockup img { width: 36px; height: 36px; }
-    .lockup span { font-size: 20px; font-weight: 800; letter-spacing: 1px; }
+    .lockup { display: flex; align-items: center; justify-content: center; gap: 14px; padding: 24px 16px; border-top: 1px solid rgba(37,99,235,0.08); background: #0F172A; }
+    .lockup img { width: 32px; height: 32px; }
+    .lockup span { font-size: 18px; font-weight: 800; letter-spacing: 0.5px; }
 
-    .meaning {
-      padding: 20px 24px;
-      border-top: 1px solid rgba(37,99,235,0.1);
-      font-size: 12px; color: #94A3B8; line-height: 1.7;
-    }
+    .meaning { padding: 18px 24px; border-top: 1px solid rgba(37,99,235,0.08); font-size: 12px; color: #94A3B8; line-height: 1.7; }
     .meaning strong { color: #F8FAFC; }
+
+    /* Prompts section */
+    .prompts-section { margin-top: 20px; }
+    .prompts-section h2 { font-size: 28px; font-weight: 900; margin-bottom: 8px; }
+    .prompts-section .intro { color: #64748B; font-size: 14px; margin-bottom: 32px; line-height: 1.6; }
+    .prompt-card { background: #0A0E1A; border: 1px solid rgba(37,99,235,0.12); border-radius: 16px; padding: 24px; margin-bottom: 20px; }
+    .prompt-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .prompt-card .platform { font-size: 11px; color: #06B6D4; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .prompt-card pre { background: #0F172A; border: 1px solid rgba(6,182,212,0.15); border-radius: 10px; padding: 16px; font-size: 13px; color: #10B981; line-height: 1.7; white-space: pre-wrap; word-wrap: break-word; font-family: 'Courier New', monospace; }
+    .prompt-card .note { font-size: 11px; color: #64748B; margin-top: 10px; line-height: 1.5; }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>Logo Concepts</h1>
-  <p class="subtitle">"Construo o sistema nervoso central das empresas com IA" — 2 Sinapses + 1 Coluna</p>
+  <h1>Logo Concepts v3</h1>
+  <p class="subtitle">"Construo o sistema nervoso central das empresas com IA" — Pill shapes + gradiente para base geométrica. Prompts de IA generativa para versão com curvas orgânicas.</p>
 
   <div class="concepts">
-
-    <!-- CONCEPT A: Sinapse I -->
+    <!-- CONCEPT A -->
     <div class="concept">
       <div class="concept-header">
         <div class="concept-label">CONCEITO A</div>
         <div class="concept-name">Sinapse I</div>
-        <div class="concept-desc">Duas formas orgânicas quase se tocam — no gap entre elas, a inteligência flui.</div>
+        <div class="concept-desc">Pill shapes com gradient. L e H como formas arredondadas com gap sináptico entre elas.</div>
       </div>
       <div class="preview-row">
-        <div class="preview-cell dark">
-          <span class="preview-label" style="color:#64748B">DARK</span>
-          <img src="logo-v2-a.svg" alt="Sinapse I on dark">
-        </div>
-        <div class="preview-cell light">
-          <span class="preview-label">LIGHT</span>
-          <img src="logo-v2-a.svg" alt="Sinapse I on light">
-        </div>
+        <div class="preview-cell dark"><span class="cell-label" style="color:#64748B">DARK</span><img src="logo-v2-a.svg" alt=""></div>
+        <div class="preview-cell light"><span class="cell-label">LIGHT</span><img src="logo-v2-a.svg" alt=""></div>
       </div>
       <div class="sizes">
-        <div class="size-item"><img src="logo-v2-a.svg" width="80" height="80"><span>80px</span></div>
-        <div class="size-item"><img src="logo-v2-a.svg" width="48" height="48"><span>48px</span></div>
+        <div class="size-item"><img src="logo-v2-a.svg" width="64" height="64"><span>64px</span></div>
         <div class="size-item"><img src="logo-v2-a.svg" width="32" height="32"><span>32px</span></div>
         <div class="size-item"><img src="logo-v2-a.svg" width="16" height="16"><span>16px</span></div>
       </div>
-      <div class="lockup">
-        <img src="logo-v2-a.svg" alt="">
-        <span>Luiz Henrique</span>
-      </div>
-      <div class="meaning">
-        <strong>Sinapse Neural:</strong> Duas crescentes orgânicas — a esquerda (L) flui para baixo com confiança, a direita (H) tem duas curvas conectadas por um pinch (crossbar). O espaço entre elas é onde a inteligência passa — como uma sinapse real. Você é o arquiteto que faz essa conexão acontecer.
-      </div>
+      <div class="lockup"><img src="logo-v2-a.svg" alt=""><span>Luiz Henrique</span></div>
+      <div class="meaning"><strong>Base geométrica:</strong> Pill shapes com bordas totalmente arredondadas + gradient blue→cyan. O gap de 8px entre L e H é a sinapse. Use como ponto de partida para refinar em Figma com curvas orgânicas.</div>
     </div>
 
-    <!-- CONCEPT B: Sinapse II -->
+    <!-- CONCEPT B -->
     <div class="concept">
       <div class="concept-header">
         <div class="concept-label">CONCEITO B</div>
         <div class="concept-name">Sinapse II</div>
-        <div class="concept-desc">LH em traço limpo com spark gap — o impulso neural entre L e H nunca para.</div>
+        <div class="concept-desc">Stroke paths com curva no canto do L e spark point cyan entre as letras.</div>
       </div>
       <div class="preview-row">
-        <div class="preview-cell dark">
-          <span class="preview-label" style="color:#64748B">DARK</span>
-          <img src="logo-v2-b.svg" alt="Sinapse II on dark">
-        </div>
-        <div class="preview-cell light">
-          <span class="preview-label">LIGHT</span>
-          <img src="logo-v2-b.svg" alt="Sinapse II on light">
-        </div>
+        <div class="preview-cell dark"><span class="cell-label" style="color:#64748B">DARK</span><img src="logo-v2-b.svg" alt=""></div>
+        <div class="preview-cell light"><span class="cell-label">LIGHT</span><img src="logo-v2-b.svg" alt=""></div>
       </div>
       <div class="sizes">
-        <div class="size-item"><img src="logo-v2-b.svg" width="80" height="80"><span>80px</span></div>
-        <div class="size-item"><img src="logo-v2-b.svg" width="48" height="48"><span>48px</span></div>
+        <div class="size-item"><img src="logo-v2-b.svg" width="64" height="64"><span>64px</span></div>
         <div class="size-item"><img src="logo-v2-b.svg" width="32" height="32"><span>32px</span></div>
         <div class="size-item"><img src="logo-v2-b.svg" width="16" height="16"><span>16px</span></div>
       </div>
-      <div class="lockup">
-        <img src="logo-v2-b.svg" alt="">
-        <span>Luiz Henrique</span>
-      </div>
-      <div class="meaning">
-        <strong>Impulso contínuo:</strong> L e H como traços elegantes com um micro-ponto cyan no gap entre eles — o spark, o impulso neural. O L desce e curva com fluidez (base sólida). O H tem crossbar que conecta os dois lados (integração). O ponto cyan = a IA que faz o sinal fluir. Persistência = o impulso nunca para.
-      </div>
+      <div class="lockup"><img src="logo-v2-b.svg" alt=""><span>Luiz Henrique</span></div>
+      <div class="meaning"><strong>Stroke elegante:</strong> L com curva suave no canto (não angular). Spark cyan entre L e H = o impulso neural. O traço grosso (18px) dá peso e presença. Versão mais minimalista e limpa.</div>
     </div>
 
-    <!-- CONCEPT C: Coluna Vertebral -->
+    <!-- CONCEPT C -->
     <div class="concept">
       <div class="concept-header">
         <div class="concept-label">CONCEITO C</div>
-        <div class="concept-name">Coluna Vertebral</div>
-        <div class="concept-desc">Eixo central forte com L e H ramificando — você é a coluna, as áreas se conectam.</div>
+        <div class="concept-name">Coluna</div>
+        <div class="concept-desc">Eixo central forte (spine) com L e H ramificando. Nós cyan nos pontos de decisão.</div>
       </div>
       <div class="preview-row">
-        <div class="preview-cell dark">
-          <span class="preview-label" style="color:#64748B">DARK</span>
-          <img src="logo-v2-c.svg" alt="Coluna on dark">
-        </div>
-        <div class="preview-cell light">
-          <span class="preview-label">LIGHT</span>
-          <img src="logo-v2-c.svg" alt="Coluna on light">
-        </div>
+        <div class="preview-cell dark"><span class="cell-label" style="color:#64748B">DARK</span><img src="logo-v2-c.svg" alt=""></div>
+        <div class="preview-cell light"><span class="cell-label">LIGHT</span><img src="logo-v2-c.svg" alt=""></div>
       </div>
       <div class="sizes">
-        <div class="size-item"><img src="logo-v2-c.svg" width="80" height="80"><span>80px</span></div>
-        <div class="size-item"><img src="logo-v2-c.svg" width="48" height="48"><span>48px</span></div>
+        <div class="size-item"><img src="logo-v2-c.svg" width="64" height="64"><span>64px</span></div>
         <div class="size-item"><img src="logo-v2-c.svg" width="32" height="32"><span>32px</span></div>
         <div class="size-item"><img src="logo-v2-c.svg" width="16" height="16"><span>16px</span></div>
       </div>
-      <div class="lockup">
-        <img src="logo-v2-c.svg" alt="">
-        <span>Luiz Henrique</span>
-      </div>
-      <div class="meaning">
-        <strong>Sistema Nervoso Central:</strong> A coluna vertebral (linha vertical central grossa) é o eixo — é VOCÊ. L ramifica para a esquerda, H para a direita. Os nós azuis na coluna são os pontos de decisão. Os nós cyan nas extremidades são as 7 áreas que se conectam ao sistema. Autenticidade = a coluna é real, estrutural, não decoração.
-      </div>
+      <div class="lockup"><img src="logo-v2-c.svg" alt=""><span>Luiz Henrique</span></div>
+      <div class="meaning"><strong>Sistema nervoso central:</strong> O eixo vertical grosso com gradient é a COLUNA (você). L e H ramificam dele. Nós cyan marcam os pontos de conexão — onde a inteligência flui para as áreas. Mais complexo, mais narrativo.</div>
+    </div>
+  </div>
+
+  <!-- AI GENERATION PROMPTS -->
+  <div class="prompts-section">
+    <h2>Prompts para IA Generativa</h2>
+    <p class="intro">Use estes prompts para criar a versão final com curvas orgânicas profissionais. Os conceitos acima servem como direção — os prompts abaixo produzem o nível de refinamento do SalesFlow.</p>
+
+    <div class="prompt-card">
+      <h3>Sinapse — Marca Abstrata (Recomendado)</h3>
+      <div class="platform">MIDJOURNEY / DALL-E / IDEOGRAM</div>
+      <pre>Minimal abstract logo mark for "LH" monogram, two elegant interlocking crescent shapes inspired by neural synapse connection, left shape suggests letter L flowing downward with curved base, right shape suggests letter H with two lobes connected at center, negative space gap between shapes represents intelligence flowing, smooth bezier curves like SalesFlow logo style, single color blue #2563EB on dark navy #0A0E1A background, ultra clean vector style, professional brand identity, no text, no gradients, simple geometric elegance --style raw --ar 1:1</pre>
+      <div class="note">Gere 4+ variações. Depois abra no Figma e refine as curvas. Este prompt foca no estilo SalesFlow com duas formas orgânicas.</div>
     </div>
 
+    <div class="prompt-card">
+      <h3>Sinapse — Versão Stroke</h3>
+      <div class="platform">MIDJOURNEY / DALL-E / IDEOGRAM</div>
+      <pre>Minimalist logo monogram "LH" designed as continuous flowing stroke, letter L flows down and curves into horizontal base, letter H has two vertical strokes connected by horizontal crossbar, small glowing cyan dot between L and H representing neural synapse spark, thick rounded stroke weight, blue #2563EB color, dark background #0A0E1A, clean vector logo style, modern tech brand, no serifs, smooth rounded terminals like modern SaaS logos --style raw --ar 1:1</pre>
+      <div class="note">Foco na versão com traço contínuo e spark point. Mais minimalista que o conceito de duas formas.</div>
+    </div>
+
+    <div class="prompt-card">
+      <h3>Coluna Vertebral — Sistema Nervoso</h3>
+      <div class="platform">MIDJOURNEY / DALL-E / IDEOGRAM</div>
+      <pre>Abstract logo mark combining letters L and H with central nervous system spine concept, strong vertical central axis representing the spine, letter L branches left with smooth curves, letter H branches right, three small cyan #06B6D4 dots at junction points representing neural nodes, blue #2563EB main color on dark navy #0A0E1A background, minimal clean vector style, tech architecture brand identity, smooth rounded edges --style raw --ar 1:1</pre>
+      <div class="note">Conceito mais narrativo. Funciona melhor quando acompanhado da explicação "sistema nervoso central".</div>
+    </div>
+
+    <div class="prompt-card">
+      <h3>Brandbook Completo (para apresentação)</h3>
+      <div class="platform">MIDJOURNEY</div>
+      <pre>Professional brand identity presentation mockup for "Luiz Henrique" personal brand, dark navy theme #0A0E1A, featuring abstract LH monogram logo in blue #2563EB, shown on business card, mobile app icon, social media profile, laptop screen, lanyard badge, multiple applications grid layout, clean modern design system presentation, Montserrat typography, minimalist luxury tech aesthetic --style raw --ar 16:9</pre>
+      <div class="note">Use depois de ter a logo finalizada para gerar mockups de aplicação da marca em diversos contextos.</div>
+    </div>
+
+    <div class="prompt-card">
+      <h3>Workflow Recomendado</h3>
+      <div class="platform">PASSO A PASSO</div>
+      <pre>1. Gere 8-12 variações usando os prompts acima no Midjourney ou Ideogram
+2. Selecione as 2-3 que mais ressoam com você
+3. Importe para o Figma como referência visual
+4. Redesenhe as curvas manualmente com a Pen Tool — refinando cada bezier handle
+5. Teste em 5 tamanhos: 16px (favicon), 32px, 64px, 128px, 512px
+6. Teste em fundo dark (#0A0E1A) e light (#F8FAFC)
+7. Crie a versão monocromática (preto puro, branco puro)
+8. Exporte como SVG (vetorial) e PNG (512px, 1024px)</pre>
+      <div class="note">Este é o workflow que designers profissionais usam. A IA gera o conceito, o humano refina.</div>
+    </div>
   </div>
 </div>
 

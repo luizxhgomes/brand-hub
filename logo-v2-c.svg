@@ -1,30 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <title>LH — Coluna Vertebral</title>
-  <!-- Central spine (shared vertical) with L and H branching from it -->
-  <!-- The spine is the "sistema nervoso central" — the axis everything connects to -->
-
-  <!-- Central spine: strong vertical line -->
-  <path d="M32 4 L32 60" stroke="#2563EB" stroke-width="5" stroke-linecap="round"/>
-
-  <!-- L branches: extend left from the spine -->
-  <!-- L vertical branch (upper left) -->
-  <path d="M32 10 L16 10 L16 42" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <!-- L base branch (curves from vertical to spine base) -->
-  <path d="M16 42 Q16 50, 24 50 L32 50" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-
-  <!-- H branches: extend right from the spine -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>LH — Coluna</title>
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <!-- Central spine: the strong shared vertical axis -->
+  <rect x="89" y="24" width="22" height="152" rx="11" fill="url(#grad)"/>
+  <!-- L: branches left from spine -->
+  <!-- L vertical (left arm) -->
+  <rect x="28" y="24" width="18" height="110" rx="9" fill="#2563EB"/>
+  <!-- L base connecting to spine -->
+  <rect x="28" y="116" width="83" height="18" rx="9" fill="#2563EB"/>
+  <!-- H: branches right from spine -->
   <!-- H right vertical -->
-  <path d="M32 10 L50 10 L50 50" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <!-- H crossbar from spine to right vertical -->
-  <path d="M32 30 L50 30" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
-  <!-- H base connects back -->
-  <path d="M50 50 L32 50" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
-
-  <!-- Neural nodes at key junction points -->
-  <circle cx="32" cy="10" r="3" fill="#2563EB"/>
-  <circle cx="32" cy="30" r="3" fill="#2563EB"/>
-  <circle cx="32" cy="50" r="3" fill="#2563EB"/>
-  <circle cx="16" cy="10" r="2.5" fill="#06B6D4"/>
-  <circle cx="50" cy="10" r="2.5" fill="#06B6D4"/>
-  <circle cx="50" cy="30" r="2.5" fill="#06B6D4"/>
+  <rect x="154" y="24" width="18" height="152" rx="9" fill="#2563EB"/>
+  <!-- H crossbar connecting spine to right -->
+  <rect x="89" y="85" width="83" height="18" rx="9" fill="#2563EB"/>
+  <!-- Neural nodes at junctions -->
+  <circle cx="100" cy="33" r="6" fill="#06B6D4"/>
+  <circle cx="100" cy="94" r="6" fill="#06B6D4"/>
+  <circle cx="100" cy="125" r="6" fill="#06B6D4"/>
 </svg>

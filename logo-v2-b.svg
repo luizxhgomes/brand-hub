@@ -1,13 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
   <title>LH — Sinapse II</title>
-  <!-- Minimal synapse: two strokes with a spark gap between them -->
-  <!-- Left stroke: L shape — vertical down, smooth curve into horizontal -->
-  <path d="M15 7 L15 48 Q15 53, 20 53 L29 53"
-        fill="none" stroke="#2563EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Synapse gap: 4px of empty space here — the intelligence flows through -->
-  <!-- Right stroke: H shape — left vertical, crossbar, right vertical as ONE continuous path -->
-  <path d="M33 53 L33 7 M33 30 L51 30 M51 7 L51 53"
-        fill="none" stroke="#2563EB" stroke-width="6" stroke-linecap="round"/>
-  <!-- Synapse spark: tiny dot in the gap representing the neural impulse -->
-  <circle cx="31" cy="53" r="1.5" fill="#06B6D4"/>
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <!-- Same concept as Sinapse I but using stroke paths for lighter feel -->
+  <!-- L stroke: vertical down, arc at corner, horizontal right -->
+  <path d="M40 30 L40 138 Q40 150, 52 150 L82 150"
+        fill="none" stroke="url(#grad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- H stroke: left vertical -->
+  <path d="M104 150 L104 30"
+        fill="none" stroke="url(#grad)" stroke-width="18" stroke-linecap="round"/>
+  <!-- H crossbar: subtle curve -->
+  <path d="M104 92 L152 92"
+        fill="none" stroke="url(#grad)" stroke-width="18" stroke-linecap="round"/>
+  <!-- H right vertical -->
+  <path d="M152 30 L152 150"
+        fill="none" stroke="url(#grad)" stroke-width="18" stroke-linecap="round"/>
+  <!-- Synapse spark between L and H -->
+  <circle cx="93" cy="150" r="4" fill="#06B6D4" opacity="0.7"/>
 </svg>
