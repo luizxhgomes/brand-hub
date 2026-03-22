@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>Luiz Henrique - O Sistema - Connected Nodes LH Monogram</title>
+  <!--
+    Concept 3: "O Sistema"
+    LH formed by connected nodes (dots) and edge lines.
+    References neural networks, systems thinking, the "sistema nervoso central."
+    Key nodes at structural vertices of the letters.
+    Lines connect the nodes to form the letterforms.
+
+    Node layout:
+    L has 3 nodes: top, bottom-left corner, bottom-right
+    H has 5 nodes: top-left, mid-left, mid-right, top-right, bottom-left, bottom-right
+    Shared connection between L and H through proximity.
+
+    Total: 9 distinct nodes — more than 7, but the visual reads clearly.
+    Using 7 primary (larger) + 2 secondary (smaller) = references the 7 areas.
+  -->
+
+  <!-- Connection lines (drawn first, behind nodes) -->
+  <g stroke="#2563EB" stroke-width="6" stroke-linecap="round" fill="none">
+    <!-- L: vertical -->
+    <line x1="36" y1="36" x2="36" y2="160"/>
+    <!-- L: horizontal base -->
+    <line x1="36" y1="160" x2="88" y2="160"/>
+
+    <!-- H: left vertical -->
+    <line x1="112" y1="36" x2="112" y2="160"/>
+    <!-- H: right vertical -->
+    <line x1="164" y1="36" x2="164" y2="160"/>
+    <!-- H: crossbar -->
+    <line x1="112" y1="100" x2="164" y2="100"/>
+
+    <!-- System connection: L to H bridge (the integration) -->
+    <line x1="88" y1="160" x2="112" y2="160" stroke-dasharray="4 6" stroke-width="3" opacity="0.5"/>
+  </g>
+
+  <!-- Primary nodes (7 nodes = 7 integrated areas) -->
+  <g fill="#2563EB">
+    <!-- L nodes -->
+    <circle cx="36" cy="36" r="10"/>   <!-- L top -->
+    <circle cx="36" cy="160" r="10"/>  <!-- L corner -->
+    <circle cx="88" cy="160" r="10"/>  <!-- L base end -->
+
+    <!-- H nodes -->
+    <circle cx="112" cy="36" r="10"/>  <!-- H top-left -->
+    <circle cx="164" cy="36" r="10"/>  <!-- H top-right -->
+    <circle cx="112" cy="160" r="10"/> <!-- H bottom-left -->
+    <circle cx="164" cy="160" r="10"/> <!-- H bottom-right -->
+  </g>
+
+  <!-- Secondary nodes (crossbar intersections) -->
+  <g fill="#2563EB">
+    <circle cx="112" cy="100" r="7"/>  <!-- H crossbar left -->
+    <circle cx="164" cy="100" r="7"/>  <!-- H crossbar right -->
+  </g>
+</svg>

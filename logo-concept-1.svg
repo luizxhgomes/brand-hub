@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>Luiz Henrique - O Arquiteto - Geometric LH Monogram</title>
+  <!--
+    Concept 1: "O Arquiteto"
+    Clean geometric LH where the L and H share a vertical stroke.
+    The shared vertical represents the connection point — the architect
+    who bridges strategy and execution.
+
+    Construction:
+    - L: horizontal base + shared vertical
+    - H: shared vertical + right vertical + crossbar
+    - Stroke weight 24px for bold presence at small sizes
+  -->
+  <g fill="#2563EB">
+    <!-- L vertical (left upright) -->
+    <rect x="40" y="40" width="24" height="120" rx="2"/>
+    <!-- L horizontal (base) -->
+    <rect x="40" y="136" width="72" height="24" rx="2"/>
+    <!-- Shared vertical stroke (connection point) -->
+    <rect x="88" y="40" width="24" height="120" rx="2"/>
+    <!-- H right vertical -->
+    <rect x="136" y="40" width="24" height="120" rx="2"/>
+    <!-- H crossbar -->
+    <rect x="88" y="88" width="72" height="24" rx="2"/>
+  </g>
+</svg>

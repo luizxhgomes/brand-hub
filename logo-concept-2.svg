@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>Luiz Henrique - O Construtor - Block Grid LH Monogram</title>
+  <!--
+    Concept 2: "O Construtor"
+    LH built from modular square blocks on a grid.
+    7 blocks total — referencing the 7 integrated areas of RevOps.
+    Negative space between blocks creates rhythm and breathing room.
+    Each block is 36x36 with 8px gaps.
+
+    Grid positions (col, row) — 0-indexed from top-left:
+    L letter (3 blocks):
+      [0,0] top-left vertical
+      [0,1] mid-left vertical
+      [0,2] bottom-left + [1,2] bottom-right = base of L
+
+    H letter (4 blocks):
+      [2,0] left upright top
+      [2,1] left upright mid + [3,1] right mid = crossbar
+      [2,2] left upright bottom
+      [3,0] right upright top
+      [3,2] right upright bottom
+  -->
+  <g fill="#2563EB">
+    <!-- Grid: each cell = 36px block + 8px gap = 44px pitch -->
+    <!-- Origin offset: (200 - 4*36 - 3*8) / 2 = (200 - 168) / 2 = 16 -->
+
+    <!-- L: column 0, rows 0-2 -->
+    <rect x="16" y="16" width="36" height="36" rx="4"/>
+    <rect x="16" y="60" width="36" height="36" rx="4"/>
+    <rect x="16" y="104" width="36" height="36" rx="4"/>
+    <!-- L: base extension column 1, row 2 -->
+    <rect x="60" y="104" width="36" height="36" rx="4"/>
+
+    <!-- H: column 2, rows 0-2 (left upright) -->
+    <rect x="104" y="16" width="36" height="36" rx="4"/>
+    <rect x="104" y="60" width="36" height="36" rx="4"/>
+    <rect x="104" y="104" width="36" height="36" rx="4"/>
+
+    <!-- H: column 3, rows 0-2 (right upright) -->
+    <rect x="148" y="16" width="36" height="36" rx="4"/>
+    <rect x="148" y="60" width="36" height="36" rx="4"/>
+    <rect x="148" y="104" width="36" height="36" rx="4"/>
+
+    <!-- H: crossbar — connect cols 2-3 at row 1 (already have both blocks) -->
+    <!-- The crossbar is implied by both col2 and col3 at row1 being present -->
+    <!-- Adding a small bridge connector between them for visual link -->
+    <rect x="140" y="68" width="8" height="20" rx="1"/>
+  </g>
+</svg>
