@@ -4,9 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arsenal de Conteúdos - Brand Hub</title>
+  <meta name="description" content="Brand Hub — Ecossistema da marca pessoal de Luiz Henrique, Arquiteto de Operações Inteligentes. RevOps + AIOX + IA.">
+  <meta property="og:title" content="Arsenal de Conteúdos - Brand Hub">
+  <meta property="og:description" content="Do Complexo da Maré para Arquiteto de Operações Inteligentes. RevOps + AIOX + Agentes de IA.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="favicon.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#2563EB">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-tokens.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+<!-- MOBILE MENU -->
+<button class="menu-toggle" aria-label="Abrir menu" onclick="toggleMenu()">
+  <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+</button>
+<div class="sidebar-overlay" onclick="toggleMenu()"></div>
 
 <nav class="sidebar">
   <div class="sidebar-logo">
@@ -27,7 +49,7 @@
   <div class="sidebar-footer">@luizhenriquexpro &middot; Brand Hub v1.0</div>
 </nav>
 
-<div class="main">
+<div class="main" id="main-content">
   <div class="page-header">
     <div class="breadcrumb">BRAND HUB &rsaquo; ARSENAL DE CONTEÚDOS</div>
     <h1>Conteúdos Prontos</h1>
@@ -42,21 +64,21 @@
       <p>Roteiros prontos com energia crescente (metodologia Vitor Becker).</p>
     </div>
 
-    <div class="tabs">
-      <button class="tab active" onclick="showStoryTab('ss1')">Set 1</button>
-      <button class="tab" onclick="showStoryTab('ss2')">Set 2</button>
-      <button class="tab" onclick="showStoryTab('ss3')">Set 3</button>
-      <button class="tab" onclick="showStoryTab('ss4')">Set 4</button>
-      <button class="tab" onclick="showStoryTab('ss5')">Set 5</button>
-      <button class="tab" onclick="showStoryTab('ss6')">Set 6</button>
-      <button class="tab" onclick="showStoryTab('ss7')">Set 7</button>
-      <button class="tab" onclick="showStoryTab('ss8')">Set 8</button>
-      <button class="tab" onclick="showStoryTab('ss9')">Set 9</button>
-      <button class="tab" onclick="showStoryTab('ss10')">Set 10</button>
+    <div class="tabs" role="tablist">
+      <button class="tab active" role="tab" onclick="showTab('ss1', this)">Set 1</button>
+      <button class="tab" role="tab" onclick="showTab('ss2', this)">Set 2</button>
+      <button class="tab" role="tab" onclick="showTab('ss3', this)">Set 3</button>
+      <button class="tab" role="tab" onclick="showTab('ss4', this)">Set 4</button>
+      <button class="tab" role="tab" onclick="showTab('ss5', this)">Set 5</button>
+      <button class="tab" role="tab" onclick="showTab('ss6', this)">Set 6</button>
+      <button class="tab" role="tab" onclick="showTab('ss7', this)">Set 7</button>
+      <button class="tab" role="tab" onclick="showTab('ss8', this)">Set 8</button>
+      <button class="tab" role="tab" onclick="showTab('ss9', this)">Set 9</button>
+      <button class="tab" role="tab" onclick="showTab('ss10', this)">Set 10</button>
     </div>
 
     <!-- SET 1 -->
-    <div id="ss1" class="tab-content active">
+    <div id="ss1" class="tab-content active" role="tabpanel">
       <div class="card" style="margin-bottom:16px;">
         <div class="card-label">STORY SET 1 <span class="badge badge-blue" style="margin-left:8px;">POSICIONAMENTO</span></div>
         <h3>"O QUE EU FAÇO NA V4 BILINSKI & CO"</h3>
@@ -95,7 +117,7 @@
     </div>
 
     <!-- SET 2 -->
-    <div id="ss2" class="tab-content">
+    <div id="ss2" class="tab-content" role="tabpanel">
       <div class="card" style="margin-bottom:16px;">
         <div class="card-label">STORY SET 2 <span class="badge badge-cyan" style="margin-left:8px;">BASTIDORES</span></div>
         <h3>"BASTIDORES DO MEU DIA"</h3>
@@ -128,7 +150,7 @@
     </div>
 
     <!-- SET 3 -->
-    <div id="ss3" class="tab-content">
+    <div id="ss3" class="tab-content" role="tabpanel">
       <div class="card" style="margin-bottom:16px;">
         <div class="card-label">STORY SET 3 <span class="badge badge-green" style="margin-left:8px;">EDUCAÇÃO</span></div>
         <h3>"TEORIA DAS RESTRIÇÕES EXPLICADA"</h3>
@@ -167,7 +189,7 @@
     </div>
 
     <!-- SET 4 -->
-    <div id="ss4" class="tab-content">
+    <div id="ss4" class="tab-content" role="tabpanel">
       <div class="card" style="margin-bottom:16px;">
         <div class="card-label">STORY SET 4 <span class="badge badge-amber" style="margin-left:8px;">STORYTELLING</span></div>
         <h3>"DE ONDE EU VIM &rarr; ONDE EU ESTOU"</h3>
@@ -201,7 +223,7 @@
     </div>
 
     <!-- SET 5 -->
-    <div id="ss5" class="tab-content">
+    <div id="ss5" class="tab-content" role="tabpanel">
       <div class="card" style="margin-bottom:16px;">
         <div class="card-label">STORY SET 5 <span class="badge badge-violet" style="margin-left:8px;">TÉCNICO</span></div>
         <h3>"AGENTES DE IA NA PRÁTICA"</h3>
@@ -230,35 +252,35 @@
     </div>
 
     <!-- SETS 6-10 PLACEHOLDER -->
-    <div id="ss6" class="tab-content">
+    <div id="ss6" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">STORY SET 6 <span class="badge badge-red" style="margin-left:8px;">FÉ & PROPÓSITO</span></div>
         <h3>"POR QUE EU FAÇO O QUE FAÇO"</h3>
         <p>Conectar fé, família e propósito. 1x a cada 2 semanas. Roteiro completo no ARSENAL-CONTEUDOS-V4.md</p>
       </div>
     </div>
-    <div id="ss7" class="tab-content">
+    <div id="ss7" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">STORY SET 7 <span class="badge badge-blue" style="margin-left:8px;">COMPARAÇÃO</span></div>
         <h3>"IA CONVERSACIONAL VS IA OPERACIONAL"</h3>
         <p>Desconstruir a confusão entre ChatGPT e agentes AIOX. Quinzenal.</p>
       </div>
     </div>
-    <div id="ss8" class="tab-content">
+    <div id="ss8" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">STORY SET 8 <span class="badge badge-cyan" style="margin-left:8px;">DADOS</span></div>
         <h3>"DASHBOARD AO VIVO"</h3>
         <p>Prints reais de dashboards com explicação. Semanal.</p>
       </div>
     </div>
-    <div id="ss9" class="tab-content">
+    <div id="ss9" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">STORY SET 9 <span class="badge badge-green" style="margin-left:8px;">EDUCAÇÃO</span></div>
         <h3>"COMO COMEÇAR COM AIOX"</h3>
         <p>Guia prático para iniciantes. 1x a cada 2 semanas.</p>
       </div>
     </div>
-    <div id="ss10" class="tab-content">
+    <div id="ss10" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">STORY SET 10 <span class="badge badge-amber" style="margin-left:8px;">VISÃO</span></div>
         <h3>"O FUTURO QUE EU VOU CONSTRUIR"</h3>
@@ -339,12 +361,27 @@
 </div>
 
 <script>
-function showStoryTab(id) {
-  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+function showTab(id, btn) {
+  var container = btn ? btn.closest('.content, .main') || document : document;
+  container.querySelectorAll('.tab-content').forEach(function(el) { el.classList.remove('active'); });
+  container.querySelectorAll('.tab').forEach(function(el) { el.classList.remove('active'); });
   document.getElementById(id).classList.add('active');
-  event.target.classList.add('active');
+  btn.classList.add('active');
 }
+</script>
+
+<script>
+function toggleMenu() {
+  document.querySelector('.sidebar').classList.toggle('active');
+  document.querySelector('.menu-toggle').classList.toggle('active');
+  document.querySelector('.sidebar-overlay').classList.toggle('active');
+}
+// Close menu when clicking a nav link (mobile)
+document.querySelectorAll('.sidebar-nav a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    if (window.innerWidth <= 768) toggleMenu();
+  });
+});
 </script>
 
 </body>

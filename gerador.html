@@ -4,9 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema Gerador - Brand Hub</title>
+  <meta name="description" content="Brand Hub — Ecossistema da marca pessoal de Luiz Henrique, Arquiteto de Operações Inteligentes. RevOps + AIOX + IA.">
+  <meta property="og:title" content="Sistema Gerador - Brand Hub">
+  <meta property="og:description" content="Do Complexo da Maré para Arquiteto de Operações Inteligentes. RevOps + AIOX + Agentes de IA.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="favicon.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#2563EB">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-tokens.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+<!-- MOBILE MENU -->
+<button class="menu-toggle" aria-label="Abrir menu" onclick="toggleMenu()">
+  <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+</button>
+<div class="sidebar-overlay" onclick="toggleMenu()"></div>
 
 <nav class="sidebar">
   <div class="sidebar-logo">
@@ -27,7 +49,7 @@
   <div class="sidebar-footer">@luizhenriquexpro &middot; Brand Hub v1.0</div>
 </nav>
 
-<div class="main">
+<div class="main" id="main-content">
   <div class="page-header">
     <div class="breadcrumb">BRAND HUB &rsaquo; SISTEMA GERADOR</div>
     <h1>Motor de Produção</h1>
@@ -108,16 +130,16 @@ HASHTAGS PADRÃO: #AIOX #Transformação #RevOps #IA #Aprendizado #Tech
       <h2>Prompts por Formato</h2>
     </div>
 
-    <div class="tabs">
-      <button class="tab active" onclick="showGenTab('gen1')">Post IG</button>
-      <button class="tab" onclick="showGenTab('gen2')">Reel</button>
-      <button class="tab" onclick="showGenTab('gen3')">Carrossel</button>
-      <button class="tab" onclick="showGenTab('gen4')">LinkedIn</button>
-      <button class="tab" onclick="showGenTab('gen5')">Thread X</button>
-      <button class="tab" onclick="showGenTab('gen6')">Stories</button>
+    <div class="tabs" role="tablist">
+      <button class="tab active" role="tab" onclick="showTab('gen1', this)">Post IG</button>
+      <button class="tab" role="tab" onclick="showTab('gen2', this)">Reel</button>
+      <button class="tab" role="tab" onclick="showTab('gen3', this)">Carrossel</button>
+      <button class="tab" role="tab" onclick="showTab('gen4', this)">LinkedIn</button>
+      <button class="tab" role="tab" onclick="showTab('gen5', this)">Thread X</button>
+      <button class="tab" role="tab" onclick="showTab('gen6', this)">Stories</button>
     </div>
 
-    <div id="gen1" class="tab-content active">
+    <div id="gen1" class="tab-content active" role="tabpanel">
       <div class="card">
         <div class="card-label">FORMATO 1: POST INSTAGRAM</div>
         <div class="code-block" style="margin-top:16px;font-size:12px;">
@@ -145,7 +167,7 @@ REGRAS:
       </div>
     </div>
 
-    <div id="gen2" class="tab-content">
+    <div id="gen2" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">FORMATO 2: REEL / VIDEO CURTO</div>
         <div class="code-block" style="margin-top:16px;font-size:12px;">
@@ -173,7 +195,7 @@ REGRAS:
       </div>
     </div>
 
-    <div id="gen3" class="tab-content">
+    <div id="gen3" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">FORMATO 3: CARROSSEL</div>
         <div class="code-block" style="margin-top:16px;font-size:12px;">
@@ -200,7 +222,7 @@ REGRAS:
       </div>
     </div>
 
-    <div id="gen4" class="tab-content">
+    <div id="gen4" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">FORMATO 4: POST LINKEDIN</div>
         <div class="code-block" style="margin-top:16px;font-size:12px;">
@@ -230,7 +252,7 @@ REGRAS:
       </div>
     </div>
 
-    <div id="gen5" class="tab-content">
+    <div id="gen5" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">FORMATO 5: THREAD X (TWITTER)</div>
         <div class="code-block" style="margin-top:16px;font-size:12px;">
@@ -256,7 +278,7 @@ REGRAS:
       </div>
     </div>
 
-    <div id="gen6" class="tab-content">
+    <div id="gen6" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">FORMATO 6: STORIES INSTAGRAM</div>
         <div class="code-block" style="margin-top:16px;font-size:12px;">
@@ -380,12 +402,27 @@ REGRAS:
 </div>
 
 <script>
-function showGenTab(id) {
-  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+function showTab(id, btn) {
+  var container = btn ? btn.closest('.content, .main') || document : document;
+  container.querySelectorAll('.tab-content').forEach(function(el) { el.classList.remove('active'); });
+  container.querySelectorAll('.tab').forEach(function(el) { el.classList.remove('active'); });
   document.getElementById(id).classList.add('active');
-  event.target.classList.add('active');
+  btn.classList.add('active');
 }
+</script>
+
+<script>
+function toggleMenu() {
+  document.querySelector('.sidebar').classList.toggle('active');
+  document.querySelector('.menu-toggle').classList.toggle('active');
+  document.querySelector('.sidebar-overlay').classList.toggle('active');
+}
+// Close menu when clicking a nav link (mobile)
+document.querySelectorAll('.sidebar-nav a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    if (window.innerWidth <= 768) toggleMenu();
+  });
+});
 </script>
 
 </body>

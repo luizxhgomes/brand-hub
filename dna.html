@@ -4,9 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DNA & Persona - Brand Hub</title>
+  <meta name="description" content="Brand Hub — Ecossistema da marca pessoal de Luiz Henrique, Arquiteto de Operações Inteligentes. RevOps + AIOX + IA.">
+  <meta property="og:title" content="DNA & Persona - Brand Hub">
+  <meta property="og:description" content="Do Complexo da Maré para Arquiteto de Operações Inteligentes. RevOps + AIOX + Agentes de IA.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="favicon.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#2563EB">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-tokens.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+<!-- MOBILE MENU -->
+<button class="menu-toggle" aria-label="Abrir menu" onclick="toggleMenu()">
+  <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+</button>
+<div class="sidebar-overlay" onclick="toggleMenu()"></div>
 
 <nav class="sidebar">
   <div class="sidebar-logo">
@@ -27,7 +49,7 @@
   <div class="sidebar-footer">@luizhenriquexpro &middot; Brand Hub v1.0</div>
 </nav>
 
-<div class="main">
+<div class="main" id="main-content">
   <div class="page-header">
     <div class="breadcrumb">BRAND HUB &rsaquo; DNA & PERSONA</div>
     <h1>Identidade Core</h1>
@@ -230,6 +252,20 @@ não pode ser impedido de liderar a revolução tecnológica do mercado digital.
 
   </div>
 </div>
+
+<script>
+function toggleMenu() {
+  document.querySelector('.sidebar').classList.toggle('active');
+  document.querySelector('.menu-toggle').classList.toggle('active');
+  document.querySelector('.sidebar-overlay').classList.toggle('active');
+}
+// Close menu when clicking a nav link (mobile)
+document.querySelectorAll('.sidebar-nav a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    if (window.innerWidth <= 768) toggleMenu();
+  });
+});
+</script>
 
 </body>
 </html>

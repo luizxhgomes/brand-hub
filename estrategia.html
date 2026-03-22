@@ -4,9 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estratégia de Marca - Brand Hub</title>
+  <meta name="description" content="Brand Hub — Ecossistema da marca pessoal de Luiz Henrique, Arquiteto de Operações Inteligentes. RevOps + AIOX + IA.">
+  <meta property="og:title" content="Estratégia de Marca - Brand Hub">
+  <meta property="og:description" content="Do Complexo da Maré para Arquiteto de Operações Inteligentes. RevOps + AIOX + Agentes de IA.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="favicon.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#2563EB">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-tokens.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+<!-- MOBILE MENU -->
+<button class="menu-toggle" aria-label="Abrir menu" onclick="toggleMenu()">
+  <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+</button>
+<div class="sidebar-overlay" onclick="toggleMenu()"></div>
 
 <nav class="sidebar">
   <div class="sidebar-logo">
@@ -27,7 +49,7 @@
   <div class="sidebar-footer">@luizhenriquexpro &middot; Brand Hub v1.0</div>
 </nav>
 
-<div class="main">
+<div class="main" id="main-content">
   <div class="page-header">
     <div class="breadcrumb">BRAND HUB &rsaquo; ESTRATÉGIA DE MARCA</div>
     <h1>Brand Strategy & Formatos Criativos</h1>
@@ -178,18 +200,18 @@
     </div>
 
     <!-- TABS -->
-    <div class="tabs">
-      <button class="tab active" onclick="showTab('tab1')">Gargalo</button>
-      <button class="tab" onclick="showTab('tab2')">Decodificando</button>
-      <button class="tab" onclick="showTab('tab3')">Radiografia</button>
-      <button class="tab" onclick="showTab('tab4')">Antes vs Agora</button>
-      <button class="tab" onclick="showTab('tab5')">Carta Aberta</button>
-      <button class="tab" onclick="showTab('tab6')">Mito vs Real</button>
-      <button class="tab" onclick="showTab('tab7')">Dashboard</button>
-      <button class="tab" onclick="showTab('tab8')">Fluxograma</button>
+    <div class="tabs" role="tablist">
+      <button class="tab active" role="tab" onclick="showTab('tab1', this)">Gargalo</button>
+      <button class="tab" role="tab" onclick="showTab('tab2', this)">Decodificando</button>
+      <button class="tab" role="tab" onclick="showTab('tab3', this)">Radiografia</button>
+      <button class="tab" role="tab" onclick="showTab('tab4', this)">Antes vs Agora</button>
+      <button class="tab" role="tab" onclick="showTab('tab5', this)">Carta Aberta</button>
+      <button class="tab" role="tab" onclick="showTab('tab6', this)">Mito vs Real</button>
+      <button class="tab" role="tab" onclick="showTab('tab7', this)">Dashboard</button>
+      <button class="tab" role="tab" onclick="showTab('tab8', this)">Fluxograma</button>
     </div>
 
-    <div id="tab1" class="tab-content active">
+    <div id="tab1" class="tab-content active" role="tabpanel">
       <div class="card">
         <div class="card-label">GARGALO DA SEMANA <span class="badge badge-red" style="margin-left:8px;">SEMANAL</span></div>
         <h3>Identificar restrição real + mostrar solução com IA</h3>
@@ -205,7 +227,7 @@ SLIDE 6: CTA - "Qual o gargalo da SUA operação?"
       </div>
     </div>
 
-    <div id="tab2" class="tab-content">
+    <div id="tab2" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">DECODIFICANDO <span class="badge badge-blue" style="margin-left:8px;">QUINZENAL</span></div>
         <h3>Carrossel educativo profundo - traduzir tech para business</h3>
@@ -221,7 +243,7 @@ SLIDE 8: CTA - "Salva pra quando precisar"
       </div>
     </div>
 
-    <div id="tab3" class="tab-content">
+    <div id="tab3" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">RADIOGRAFIA DE OPERAÇÃO <span class="badge badge-violet" style="margin-left:8px;">MENSAL</span></div>
         <h3>Raio-X visual de um processo real anonimizado</h3>
@@ -239,7 +261,7 @@ SLIDE 8: CTA - "Me chama no DM"
       </div>
     </div>
 
-    <div id="tab4" class="tab-content">
+    <div id="tab4" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">ANTES VS AGORA <span class="badge badge-cyan" style="margin-left:8px;">QUINZENAL</span></div>
         <h3>Split-screen comparando método antigo vs método com IA</h3>
@@ -260,7 +282,7 @@ RODAPÉ: Resultado mensurável da transformação
       </div>
     </div>
 
-    <div id="tab5" class="tab-content">
+    <div id="tab5" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">CARTA ABERTA <span class="badge badge-amber" style="margin-left:8px;">MENSAL</span></div>
         <h3>Texto longo emocional - storytelling profundo</h3>
@@ -277,7 +299,7 @@ ESTRUTURA:
       </div>
     </div>
 
-    <div id="tab6" class="tab-content">
+    <div id="tab6" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">MITO VS REALIDADE <span class="badge badge-green" style="margin-left:8px;">QUINZENAL</span></div>
         <h3>Desconstrução de crenças populares sobre IA e RevOps</h3>
@@ -294,7 +316,7 @@ SLIDE 7: CTA - compartilha com quem precisa ouvir
       </div>
     </div>
 
-    <div id="tab7" class="tab-content">
+    <div id="tab7" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">DASHBOARD AO VIVO <span class="badge badge-blue" style="margin-left:8px;">SEMANAL</span></div>
         <h3>Dados reais em stories/reels - transparência total</h3>
@@ -309,7 +331,7 @@ STORY 5: Enquete - "Você acompanha métricas diariamente?"
       </div>
     </div>
 
-    <div id="tab8" class="tab-content">
+    <div id="tab8" class="tab-content" role="tabpanel">
       <div class="card">
         <div class="card-label">FLUXOGRAMA DE DECISÃO <span class="badge badge-violet" style="margin-left:8px;">MENSAL</span></div>
         <h3>Árvore de decisão visual para problemas comuns</h3>
@@ -365,12 +387,27 @@ RODAPÉ: "Salva esse fluxograma. Você vai precisar."
 </div>
 
 <script>
-function showTab(id) {
-  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+function showTab(id, btn) {
+  var container = btn ? btn.closest('.content, .main') || document : document;
+  container.querySelectorAll('.tab-content').forEach(function(el) { el.classList.remove('active'); });
+  container.querySelectorAll('.tab').forEach(function(el) { el.classList.remove('active'); });
   document.getElementById(id).classList.add('active');
-  event.target.classList.add('active');
+  btn.classList.add('active');
 }
+</script>
+
+<script>
+function toggleMenu() {
+  document.querySelector('.sidebar').classList.toggle('active');
+  document.querySelector('.menu-toggle').classList.toggle('active');
+  document.querySelector('.sidebar-overlay').classList.toggle('active');
+}
+// Close menu when clicking a nav link (mobile)
+document.querySelectorAll('.sidebar-nav a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    if (window.innerWidth <= 768) toggleMenu();
+  });
+});
 </script>
 
 </body>
