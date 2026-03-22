@@ -1,8 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <title>LH — Fluxo Contínuo</title>
-  <!-- LH as one continuous elegant stroke — persistence, never breaks -->
-  <!-- L: vertical down + curved base right -->
-  <path d="M14 8 L14 50 Q14 56, 20 56 L28 56" fill="none" stroke="#2563EB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- H: left vertical + crossbar + right vertical, connected as one path -->
-  <path d="M36 56 L36 8 M36 32 Q42 30, 50 32 M50 8 L50 56" fill="none" stroke="#2563EB" stroke-width="5" stroke-linecap="round"/>
+  <title>LH — Sinapse II</title>
+  <!-- Minimal synapse: two strokes with a spark gap between them -->
+  <!-- Left stroke: L shape — vertical down, smooth curve into horizontal -->
+  <path d="M15 7 L15 48 Q15 53, 20 53 L29 53"
+        fill="none" stroke="#2563EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Synapse gap: 4px of empty space here — the intelligence flows through -->
+  <!-- Right stroke: H shape — left vertical, crossbar, right vertical as ONE continuous path -->
+  <path d="M33 53 L33 7 M33 30 L51 30 M51 7 L51 53"
+        fill="none" stroke="#2563EB" stroke-width="6" stroke-linecap="round"/>
+  <!-- Synapse spark: tiny dot in the gap representing the neural impulse -->
+  <circle cx="31" cy="53" r="1.5" fill="#06B6D4"/>
 </svg>

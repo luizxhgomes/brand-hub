@@ -1,8 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <title>LH — Ascensão</title>
-  <!-- Two flowing shapes that together read as "LH" -->
-  <!-- Left shape: stylized L — vertical stroke with curved base flowing right -->
-  <path d="M14 7 C13 7, 11 9, 11 11 L11 49 C11 55, 15 57, 19 57 L27 57 C29 57, 29 53, 27 53 L19 53 C17 53, 15 51, 15 49 L15 11 C15 9, 16 7, 14 7Z" fill="#2563EB"/>
-  <!-- Right shape: stylized H — two verticals with curved crossbar -->
-  <path d="M33 7 C31 7, 31 9, 31 11 L31 53 C31 55, 33 57, 35 57 C37 57, 37 55, 37 53 L37 35 L47 35 L47 53 C47 55, 49 57, 51 57 C53 57, 53 55, 53 53 L53 11 C53 9, 53 7, 51 7 C49 7, 49 9, 49 11 L49 31 L37 31 L37 11 C37 9, 35 7, 33 7Z" fill="#2563EB"/>
+  <title>LH — Sinapse I</title>
+  <!-- Two smooth crescents that almost touch — the gap is where intelligence flows -->
+  <!-- Left crescent: the L — flows down with a confident curve, base hooks right -->
+  <path d="
+    M18 6
+    C12 6, 8 14, 8 24
+    C8 38, 10 48, 16 52
+    C20 55, 26 55, 29 52
+    C31 49, 29 44, 26 44
+    C22 44, 18 42, 16 36
+    C13 26, 14 14, 20 10
+    C22 8, 22 6, 18 6Z
+  " fill="#2563EB"/>
+  <!-- Right crescent: the H — two lobes connected by a pinch (crossbar) -->
+  <path d="
+    M46 6
+    C50 6, 54 14, 54 24
+    C54 28, 52 31, 48 32
+    C52 33, 54 36, 54 40
+    C54 50, 50 58, 46 58
+    C42 58, 38 50, 38 40
+    C38 36, 40 33, 44 32
+    C40 31, 38 28, 38 24
+    C38 14, 42 6, 46 6Z
+  " fill="#2563EB"/>
 </svg>

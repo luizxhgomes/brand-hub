@@ -1,13 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <title>LH — Monograma Unificado</title>
-  <!-- LH monogram where L and H share a vertical stroke -->
-  <!-- Smooth rounded ends, SalesFlow-inspired weight -->
-  <!-- L vertical -->
-  <path d="M11 8 Q11 6, 13 6 Q15 6, 15 8 L15 50 Q15 54, 19 54 L25 54 Q27 54, 27 52 Q27 50, 25 50 L19 50 Q17 50, 17 48 L17 8 Q17 6, 15 6" fill="#2563EB"/>
-  <!-- H left vertical (shared proximity with L) -->
-  <path d="M27 6 Q29 6, 29 8 L29 52 Q29 54, 31 54 Q33 54, 33 52 L33 8 Q33 6, 31 6 Q29 6, 29 8Z" fill="#2563EB"/>
-  <!-- H crossbar -->
-  <path d="M29 28 L49 28 L49 34 L29 34Z" rx="3" fill="#2563EB"/>
+  <title>LH — Coluna Vertebral</title>
+  <!-- Central spine (shared vertical) with L and H branching from it -->
+  <!-- The spine is the "sistema nervoso central" — the axis everything connects to -->
+
+  <!-- Central spine: strong vertical line -->
+  <path d="M32 4 L32 60" stroke="#2563EB" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- L branches: extend left from the spine -->
+  <!-- L vertical branch (upper left) -->
+  <path d="M32 10 L16 10 L16 42" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- L base branch (curves from vertical to spine base) -->
+  <path d="M16 42 Q16 50, 24 50 L32 50" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- H branches: extend right from the spine -->
   <!-- H right vertical -->
-  <path d="M45 6 Q47 6, 47 8 L47 52 Q47 54, 49 54 Q51 54, 51 52 L51 8 Q51 6, 49 6 Q47 6, 47 8Z" fill="#2563EB"/>
+  <path d="M32 10 L50 10 L50 50" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- H crossbar from spine to right vertical -->
+  <path d="M32 30 L50 30" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+  <!-- H base connects back -->
+  <path d="M50 50 L32 50" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Neural nodes at key junction points -->
+  <circle cx="32" cy="10" r="3" fill="#2563EB"/>
+  <circle cx="32" cy="30" r="3" fill="#2563EB"/>
+  <circle cx="32" cy="50" r="3" fill="#2563EB"/>
+  <circle cx="16" cy="10" r="2.5" fill="#06B6D4"/>
+  <circle cx="50" cy="10" r="2.5" fill="#06B6D4"/>
+  <circle cx="50" cy="30" r="2.5" fill="#06B6D4"/>
 </svg>

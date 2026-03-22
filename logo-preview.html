@@ -1,694 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Logo Concepts v2 - Luiz Henrique | @luizhenriquexpro</title>
-  <link rel="stylesheet" href="design-tokens.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Concepts — Luiz Henrique</title>
+  <link rel="stylesheet" href="design-tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; background: #050508; color: #F8FAFC; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
 
-    body {
-      font-family: var(--font-display);
-      background: var(--bg-void);
-      color: var(--text-primary);
-      min-height: 100vh;
-      padding: var(--space-8) var(--space-6);
-    }
+    h1 { font-size: 40px; font-weight: 900; text-align: center; margin-bottom: 8px; }
+    .subtitle { text-align: center; color: #64748B; font-size: 15px; margin-bottom: 60px; }
 
-    .page-header {
-      text-align: center;
-      margin-bottom: var(--space-12);
-    }
+    .concepts { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+    @media (max-width: 768px) { .concepts { grid-template-columns: 1fr; } }
 
-    .page-header .version-badge {
-      display: inline-block;
-      font-size: 10px;
-      font-family: var(--font-mono);
-      color: var(--cyan-500);
-      background: rgba(6,182,212,0.1);
-      border: 1px solid rgba(6,182,212,0.2);
-      padding: 3px 10px;
-      border-radius: var(--radius-full);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: var(--space-4);
-    }
-
-    .page-header h1 {
-      font-size: var(--text-3xl);
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: var(--space-2);
-    }
-
-    .page-header p {
-      font-size: var(--text-base);
-      color: var(--text-muted);
-    }
-
-    .page-header .direction-note {
-      font-size: var(--text-sm);
-      color: var(--text-subtle);
-      margin-top: var(--space-3);
-      font-style: italic;
-    }
-
-    .concepts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-8);
-      max-width: 1280px;
-      margin: 0 auto var(--space-12);
-    }
-
-    @media (max-width: 1000px) {
-      .concepts-grid { grid-template-columns: 1fr; max-width: 480px; }
-    }
-
-    .concept-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--bg-border);
-      border-radius: var(--radius-lg);
+    .concept {
+      background: #0A0E1A;
+      border: 1px solid rgba(37,99,235,0.15);
+      border-radius: 20px;
       overflow: hidden;
-      transition: border-color var(--duration-normal) var(--ease-out);
     }
-
-    .concept-card:hover {
-      border-color: rgba(37,99,235,0.3);
-    }
-
     .concept-header {
-      padding: var(--space-5) var(--space-6);
-      border-bottom: 1px solid var(--bg-border);
+      padding: 20px 24px;
+      border-bottom: 1px solid rgba(37,99,235,0.1);
     }
-
-    .concept-number {
-      font-size: var(--text-xs);
-      font-family: var(--font-mono);
-      color: var(--cyan-500);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: var(--space-1);
+    .concept-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #06B6D4; margin-bottom: 6px;
     }
-
-    .concept-name {
-      font-size: var(--text-xl);
-      font-weight: 700;
-    }
-
-    .concept-subtitle {
-      font-size: var(--text-sm);
-      color: var(--text-muted);
-      margin-top: var(--space-1);
-    }
-
-    .concept-meaning {
-      font-size: var(--text-sm);
-      color: var(--text-subtle);
-      margin-top: var(--space-2);
-      line-height: 1.5;
-      padding-top: var(--space-2);
-      border-top: 1px solid var(--bg-border-subtle);
-    }
-
-    .variant-label {
-      text-align: center;
-      padding: var(--space-2) var(--space-4);
-      font-size: 10px;
-      font-family: var(--font-mono);
-      color: var(--text-subtle);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      border-top: 1px solid var(--bg-border);
-      background: rgba(15,23,42,0.5);
-    }
+    .concept-name { font-size: 20px; font-weight: 800; }
+    .concept-desc { font-size: 12px; color: #64748B; margin-top: 4px; line-height: 1.5; }
 
     .preview-row {
-      display: flex;
-      gap: 0;
+      display: grid; grid-template-columns: 1fr 1fr;
     }
-
     .preview-cell {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-8) var(--space-4);
-      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px 20px; position: relative;
     }
-
     .preview-cell.dark { background: #0A0E1A; }
     .preview-cell.light { background: #F8FAFC; }
-
-    .preview-cell .bg-label {
-      position: absolute;
-      top: var(--space-2);
-      left: var(--space-3);
-      font-size: 9px;
-      font-family: var(--font-mono);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      opacity: 0.35;
+    .preview-cell img { width: 120px; height: 120px; }
+    .preview-label {
+      position: absolute; top: 8px; left: 12px;
+      font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #334155;
     }
 
-    .preview-cell.dark .bg-label { color: #F8FAFC; }
-    .preview-cell.light .bg-label { color: #0A0E1A; }
-
-    .preview-cell svg {
-      width: 96px;
-      height: 96px;
+    .sizes {
+      display: flex; align-items: flex-end; justify-content: center;
+      gap: 24px; padding: 24px; border-top: 1px solid rgba(37,99,235,0.1);
     }
+    .size-item { text-align: center; }
+    .size-item img { display: block; margin: 0 auto 6px; }
+    .size-item span { font-size: 10px; color: #334155; }
 
-    .size-test {
-      display: flex;
-      align-items: flex-end;
-      gap: var(--space-5);
-      padding: var(--space-5) var(--space-6);
-      border-top: 1px solid var(--bg-border);
+    .lockup {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; padding: 28px 20px;
+      border-top: 1px solid rgba(37,99,235,0.1);
+      background: #0F172A;
     }
+    .lockup img { width: 36px; height: 36px; }
+    .lockup span { font-size: 20px; font-weight: 800; letter-spacing: 1px; }
 
-    .size-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-1);
+    .meaning {
+      padding: 20px 24px;
+      border-top: 1px solid rgba(37,99,235,0.1);
+      font-size: 12px; color: #94A3B8; line-height: 1.7;
     }
-
-    .size-item span {
-      font-size: 9px;
-      font-family: var(--font-mono);
-      color: var(--text-subtle);
-      display: block;
-      text-align: center;
-    }
-
-    .size-item svg { display: block; }
-
-    /* Lockup section */
-    .lockup-section {
-      max-width: 1280px;
-      margin: 0 auto var(--space-12);
-    }
-
-    .lockup-section h2 {
-      font-size: var(--text-lg);
-      font-weight: 700;
-      margin-bottom: var(--space-6);
-      padding-left: var(--space-2);
-    }
-
-    .lockup-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-6);
-    }
-
-    @media (max-width: 1000px) {
-      .lockup-grid { grid-template-columns: 1fr; max-width: 480px; }
-    }
-
-    .lockup-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--bg-border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-    }
-
-    .lockup-card .lockup-label {
-      padding: var(--space-2) var(--space-4);
-      font-size: 10px;
-      font-family: var(--font-mono);
-      color: var(--text-subtle);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      border-bottom: 1px solid var(--bg-border);
-      background: rgba(15,23,42,0.5);
-    }
-
-    .lockup-preview {
-      padding: var(--space-8) var(--space-6);
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-    }
-
-    .lockup-preview.on-dark { background: #0A0E1A; }
-    .lockup-preview.on-light { background: #F8FAFC; }
-
-    .lockup-preview svg {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-    }
-
-    .lockup-text {
-      font-family: 'Montserrat', var(--font-display);
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: -0.3px;
-      line-height: 1.1;
-    }
-
-    .lockup-preview.on-dark .lockup-text { color: #F8FAFC; }
-    .lockup-preview.on-light .lockup-text { color: #0F172A; }
-
-    /* Notes section */
-    .notes {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: var(--space-8);
-      background: var(--bg-surface);
-      border: 1px solid var(--bg-border);
-      border-radius: var(--radius-lg);
-    }
-
-    .notes h2 {
-      font-size: var(--text-lg);
-      margin-bottom: var(--space-4);
-    }
-
-    .notes ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .notes li {
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-      padding: var(--space-3) 0;
-      border-bottom: 1px solid var(--bg-border-subtle);
-      display: flex;
-      align-items: baseline;
-      gap: var(--space-3);
-      line-height: 1.6;
-    }
-
-    .notes li:last-child { border-bottom: none; }
-
-    .notes li::before {
-      content: '';
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--blue-600);
-      flex-shrink: 0;
-      position: relative;
-      top: 2px;
-    }
+    .meaning strong { color: #F8FAFC; }
   </style>
 </head>
 <body>
 
-  <header class="page-header">
-    <div class="version-badge">v2 -- Curved &amp; Organic</div>
-    <h1>Logo Concepts</h1>
-    <p>Luiz Henrique | @luizhenriquexpro | Arquiteto de Operacoes Inteligentes</p>
-    <p class="direction-note">Direction: smooth bezier curves, abstract symbolic marks, fluid organic shapes</p>
-  </header>
+<div class="container">
+  <h1>Logo Concepts</h1>
+  <p class="subtitle">"Construo o sistema nervoso central das empresas com IA" — 2 Sinapses + 1 Coluna</p>
 
-  <!-- ============================================= -->
-  <!-- CONCEPT A: Ascensao                           -->
-  <!-- ============================================= -->
-  <section class="concepts-grid">
+  <div class="concepts">
 
-    <div class="concept-card">
+    <!-- CONCEPT A: Sinapse I -->
+    <div class="concept">
       <div class="concept-header">
-        <div class="concept-number">Concept A</div>
-        <div class="concept-name">Ascensao</div>
-        <div class="concept-subtitle">Two Interlocking Crescents</div>
-        <div class="concept-meaning">Two curved crescents dance together -- one rising, one grounding. Together they suggest "LH" in the negative space while embodying the upward movement from humble origins to the top. Inspired by SalesFlow's interlocking crescent style.</div>
+        <div class="concept-label">CONCEITO A</div>
+        <div class="concept-name">Sinapse I</div>
+        <div class="concept-desc">Duas formas orgânicas quase se tocam — no gap entre elas, a inteligência flui.</div>
       </div>
-
-      <!-- Solid -->
-      <div class="variant-label">Solid -- #2563EB</div>
       <div class="preview-row">
         <div class="preview-cell dark">
-          <span class="bg-label">Dark</span>
-          <svg viewBox="0 0 64 64">
-            <path d="M20 56 C14 44, 10 30, 14 18 C17 10, 24 6, 30 10 C36 14, 34 26, 28 38 C24 46, 22 52, 20 56Z" fill="#2563EB"/>
-            <path d="M44 8 C50 20, 54 34, 50 46 C47 54, 40 58, 34 54 C28 50, 30 38, 36 26 C40 18, 42 12, 44 8Z" fill="#2563EB"/>
-          </svg>
+          <span class="preview-label" style="color:#64748B">DARK</span>
+          <img src="logo-v2-a.svg" alt="Sinapse I on dark">
         </div>
         <div class="preview-cell light">
-          <span class="bg-label">Light</span>
-          <svg viewBox="0 0 64 64">
-            <path d="M20 56 C14 44, 10 30, 14 18 C17 10, 24 6, 30 10 C36 14, 34 26, 28 38 C24 46, 22 52, 20 56Z" fill="#2563EB"/>
-            <path d="M44 8 C50 20, 54 34, 50 46 C47 54, 40 58, 34 54 C28 50, 30 38, 36 26 C40 18, 42 12, 44 8Z" fill="#2563EB"/>
-          </svg>
+          <span class="preview-label">LIGHT</span>
+          <img src="logo-v2-a.svg" alt="Sinapse I on light">
         </div>
       </div>
-
-      <!-- Gradient -->
-      <div class="variant-label">Gradient -- Blue to Cyan</div>
-      <div class="preview-row">
-        <div class="preview-cell dark">
-          <span class="bg-label">Dark</span>
-          <svg viewBox="0 0 64 64">
-            <defs>
-              <linearGradient id="ca-grad-d" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#2563EB"/>
-                <stop offset="100%" stop-color="#06B6D4"/>
-              </linearGradient>
-            </defs>
-            <path d="M20 56 C14 44, 10 30, 14 18 C17 10, 24 6, 30 10 C36 14, 34 26, 28 38 C24 46, 22 52, 20 56Z" fill="url(#ca-grad-d)"/>
-            <path d="M44 8 C50 20, 54 34, 50 46 C47 54, 40 58, 34 54 C28 50, 30 38, 36 26 C40 18, 42 12, 44 8Z" fill="url(#ca-grad-d)"/>
-          </svg>
-        </div>
-        <div class="preview-cell light">
-          <span class="bg-label">Light</span>
-          <svg viewBox="0 0 64 64">
-            <defs>
-              <linearGradient id="ca-grad-l" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#2563EB"/>
-                <stop offset="100%" stop-color="#06B6D4"/>
-              </linearGradient>
-            </defs>
-            <path d="M20 56 C14 44, 10 30, 14 18 C17 10, 24 6, 30 10 C36 14, 34 26, 28 38 C24 46, 22 52, 20 56Z" fill="url(#ca-grad-l)"/>
-            <path d="M44 8 C50 20, 54 34, 50 46 C47 54, 40 58, 34 54 C28 50, 30 38, 36 26 C40 18, 42 12, 44 8Z" fill="url(#ca-grad-l)"/>
-          </svg>
-        </div>
+      <div class="sizes">
+        <div class="size-item"><img src="logo-v2-a.svg" width="80" height="80"><span>80px</span></div>
+        <div class="size-item"><img src="logo-v2-a.svg" width="48" height="48"><span>48px</span></div>
+        <div class="size-item"><img src="logo-v2-a.svg" width="32" height="32"><span>32px</span></div>
+        <div class="size-item"><img src="logo-v2-a.svg" width="16" height="16"><span>16px</span></div>
       </div>
-
-      <!-- Size test -->
-      <div class="size-test">
-        <div class="size-item">
-          <svg viewBox="0 0 64 64" width="128" height="128">
-            <path d="M20 56 C14 44, 10 30, 14 18 C17 10, 24 6, 30 10 C36 14, 34 26, 28 38 C24 46, 22 52, 20 56Z" fill="#2563EB"/>
-            <path d="M44 8 C50 20, 54 34, 50 46 C47 54, 40 58, 34 54 C28 50, 30 38, 36 26 C40 18, 42 12, 44 8Z" fill="#2563EB"/>
-          </svg>
-          <span>128px</span>
-        </div>
-        <div class="size-item">
-          <svg viewBox="0 0 64 64" width="64" height="64">
-            <path d="M20 56 C14 44, 10 30, 14 18 C17 10, 24 6, 30 10 C36 14, 34 26, 28 38 C24 46, 22 52, 20 56Z" fill="#2563EB"/>
-            <path d="M44 8 C50 20, 54 34, 50 46 C47 54, 40 58, 34 54 C28 50, 30 38, 36 26 C40 18, 42 12, 44 8Z" fill="#2563EB"/>
-          </svg>
-          <span>64px</span>
-        </div>
-        <div class="size-item">
-          <svg viewBox="0 0 64 64" width="32" height="32">
-            <path d="M20 56 C14 44, 10 30, 14 18 C17 10, 24 6, 30 10 C36 14, 34 26, 28 38 C24 46, 22 52, 20 56Z" fill="#2563EB"/>
-            <path d="M44 8 C50 20, 54 34, 50 46 C47 54, 40 58, 34 54 C28 50, 30 38, 36 26 C40 18, 42 12, 44 8Z" fill="#2563EB"/>
-          </svg>
-          <span>32px</span>
-        </div>
-        <div class="size-item">
-          <svg viewBox="0 0 64 64" width="16" height="16">
-            <path d="M20 56 C14 44, 10 30, 14 18 C17 10, 24 6, 30 10 C36 14, 34 26, 28 38 C24 46, 22 52, 20 56Z" fill="#2563EB"/>
-            <path d="M44 8 C50 20, 54 34, 50 46 C47 54, 40 58, 34 54 C28 50, 30 38, 36 26 C40 18, 42 12, 44 8Z" fill="#2563EB"/>
-          </svg>
-          <span>16px</span>
-        </div>
+      <div class="lockup">
+        <img src="logo-v2-a.svg" alt="">
+        <span>Luiz Henrique</span>
+      </div>
+      <div class="meaning">
+        <strong>Sinapse Neural:</strong> Duas crescentes orgânicas — a esquerda (L) flui para baixo com confiança, a direita (H) tem duas curvas conectadas por um pinch (crossbar). O espaço entre elas é onde a inteligência passa — como uma sinapse real. Você é o arquiteto que faz essa conexão acontecer.
       </div>
     </div>
 
-    <!-- ============================================= -->
-    <!-- CONCEPT B: Fluxo Continuo                     -->
-    <!-- ============================================= -->
-
-    <div class="concept-card">
+    <!-- CONCEPT B: Sinapse II -->
+    <div class="concept">
       <div class="concept-header">
-        <div class="concept-number">Concept B</div>
-        <div class="concept-name">Fluxo Continuo</div>
-        <div class="concept-subtitle">Single Unbroken Flowing Path</div>
-        <div class="concept-meaning">One continuous stroke that never breaks -- representing persistence and resilience. The flowing line traces an abstract "LH" as a single gesture, like a signature. What never stops, never fails. Authenticity as a single, honest line.</div>
+        <div class="concept-label">CONCEITO B</div>
+        <div class="concept-name">Sinapse II</div>
+        <div class="concept-desc">LH em traço limpo com spark gap — o impulso neural entre L e H nunca para.</div>
       </div>
-
-      <!-- Solid -->
-      <div class="variant-label">Solid -- #2563EB</div>
       <div class="preview-row">
         <div class="preview-cell dark">
-          <span class="bg-label">Dark</span>
-          <svg viewBox="0 0 64 64">
-            <path d="M14 10 C14 10, 12 30, 14 44 Q16 54, 24 52 Q30 50, 32 40 Q34 30, 32 20 Q30 10, 36 10 Q42 10, 42 20 L42 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M32 32 Q36 30, 42 32" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M50 10 Q50 32, 50 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-          </svg>
+          <span class="preview-label" style="color:#64748B">DARK</span>
+          <img src="logo-v2-b.svg" alt="Sinapse II on dark">
         </div>
         <div class="preview-cell light">
-          <span class="bg-label">Light</span>
-          <svg viewBox="0 0 64 64">
-            <path d="M14 10 C14 10, 12 30, 14 44 Q16 54, 24 52 Q30 50, 32 40 Q34 30, 32 20 Q30 10, 36 10 Q42 10, 42 20 L42 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M32 32 Q36 30, 42 32" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M50 10 Q50 32, 50 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-          </svg>
+          <span class="preview-label">LIGHT</span>
+          <img src="logo-v2-b.svg" alt="Sinapse II on light">
         </div>
       </div>
-
-      <!-- Gradient -->
-      <div class="variant-label">Gradient -- Blue to Cyan</div>
-      <div class="preview-row">
-        <div class="preview-cell dark">
-          <span class="bg-label">Dark</span>
-          <svg viewBox="0 0 64 64">
-            <defs>
-              <linearGradient id="cb-grad-d" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#2563EB"/>
-                <stop offset="100%" stop-color="#06B6D4"/>
-              </linearGradient>
-            </defs>
-            <path d="M14 10 C14 10, 12 30, 14 44 Q16 54, 24 52 Q30 50, 32 40 Q34 30, 32 20 Q30 10, 36 10 Q42 10, 42 20 L42 52" stroke="url(#cb-grad-d)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M32 32 Q36 30, 42 32" stroke="url(#cb-grad-d)" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M50 10 Q50 32, 50 52" stroke="url(#cb-grad-d)" stroke-width="5" stroke-linecap="round" fill="none"/>
-          </svg>
-        </div>
-        <div class="preview-cell light">
-          <span class="bg-label">Light</span>
-          <svg viewBox="0 0 64 64">
-            <defs>
-              <linearGradient id="cb-grad-l" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#2563EB"/>
-                <stop offset="100%" stop-color="#06B6D4"/>
-              </linearGradient>
-            </defs>
-            <path d="M14 10 C14 10, 12 30, 14 44 Q16 54, 24 52 Q30 50, 32 40 Q34 30, 32 20 Q30 10, 36 10 Q42 10, 42 20 L42 52" stroke="url(#cb-grad-l)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M32 32 Q36 30, 42 32" stroke="url(#cb-grad-l)" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M50 10 Q50 32, 50 52" stroke="url(#cb-grad-l)" stroke-width="5" stroke-linecap="round" fill="none"/>
-          </svg>
-        </div>
+      <div class="sizes">
+        <div class="size-item"><img src="logo-v2-b.svg" width="80" height="80"><span>80px</span></div>
+        <div class="size-item"><img src="logo-v2-b.svg" width="48" height="48"><span>48px</span></div>
+        <div class="size-item"><img src="logo-v2-b.svg" width="32" height="32"><span>32px</span></div>
+        <div class="size-item"><img src="logo-v2-b.svg" width="16" height="16"><span>16px</span></div>
       </div>
-
-      <!-- Size test -->
-      <div class="size-test">
-        <div class="size-item">
-          <svg viewBox="0 0 64 64" width="128" height="128">
-            <path d="M14 10 C14 10, 12 30, 14 44 Q16 54, 24 52 Q30 50, 32 40 Q34 30, 32 20 Q30 10, 36 10 Q42 10, 42 20 L42 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M32 32 Q36 30, 42 32" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M50 10 Q50 32, 50 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-          </svg>
-          <span>128px</span>
-        </div>
-        <div class="size-item">
-          <svg viewBox="0 0 64 64" width="64" height="64">
-            <path d="M14 10 C14 10, 12 30, 14 44 Q16 54, 24 52 Q30 50, 32 40 Q34 30, 32 20 Q30 10, 36 10 Q42 10, 42 20 L42 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M32 32 Q36 30, 42 32" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M50 10 Q50 32, 50 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-          </svg>
-          <span>64px</span>
-        </div>
-        <div class="size-item">
-          <svg viewBox="0 0 64 64" width="32" height="32">
-            <path d="M14 10 C14 10, 12 30, 14 44 Q16 54, 24 52 Q30 50, 32 40 Q34 30, 32 20 Q30 10, 36 10 Q42 10, 42 20 L42 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M32 32 Q36 30, 42 32" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M50 10 Q50 32, 50 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-          </svg>
-          <span>32px</span>
-        </div>
-        <div class="size-item">
-          <svg viewBox="0 0 64 64" width="16" height="16">
-            <path d="M14 10 C14 10, 12 30, 14 44 Q16 54, 24 52 Q30 50, 32 40 Q34 30, 32 20 Q30 10, 36 10 Q42 10, 42 20 L42 52" stroke="#2563EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M32 32 Q36 30, 42 32" stroke="#2563EB" stroke-width="6" stroke-linecap="round" fill="none"/>
-            <path d="M50 10 Q50 32, 50 52" stroke="#2563EB" stroke-width="6" stroke-linecap="round" fill="none"/>
-          </svg>
-          <span>16px</span>
-        </div>
+      <div class="lockup">
+        <img src="logo-v2-b.svg" alt="">
+        <span>Luiz Henrique</span>
+      </div>
+      <div class="meaning">
+        <strong>Impulso contínuo:</strong> L e H como traços elegantes com um micro-ponto cyan no gap entre eles — o spark, o impulso neural. O L desce e curva com fluidez (base sólida). O H tem crossbar que conecta os dois lados (integração). O ponto cyan = a IA que faz o sinal fluir. Persistência = o impulso nunca para.
       </div>
     </div>
 
-    <!-- ============================================= -->
-    <!-- CONCEPT C: Estrela Persistente                -->
-    <!-- ============================================= -->
-
-    <div class="concept-card">
+    <!-- CONCEPT C: Coluna Vertebral -->
+    <div class="concept">
       <div class="concept-header">
-        <div class="concept-number">Concept C</div>
-        <div class="concept-name">Estrela Persistente</div>
-        <div class="concept-subtitle">Asymmetric Star in Circle</div>
-        <div class="concept-meaning">A 4-pointed star with the top ray elongated -- persistence means always pointing up, never falling. The bottom ray is shorter but grounded, representing solid foundations. Contained in a subtle circle like CryptoGen. Smooth curved edges, not sharp -- organic and alive.</div>
+        <div class="concept-label">CONCEITO C</div>
+        <div class="concept-name">Coluna Vertebral</div>
+        <div class="concept-desc">Eixo central forte com L e H ramificando — você é a coluna, as áreas se conectam.</div>
       </div>
-
-      <!-- Solid -->
-      <div class="variant-label">Solid -- #2563EB</div>
       <div class="preview-row">
         <div class="preview-cell dark">
-          <span class="bg-label">Dark</span>
-          <svg viewBox="0 0 64 64">
-            <circle cx="32" cy="32" r="29" fill="none" stroke="#2563EB" stroke-width="1.5" opacity="0.2"/>
-            <path d="M32 3 C33.5 14, 38 22, 44 26 C50 28, 56 30, 60 32 C56 34, 50 36, 44 38 C38 42, 33.5 50, 32 57 C30.5 50, 26 42, 20 38 C14 36, 8 34, 4 32 C8 30, 14 28, 20 26 C26 22, 30.5 14, 32 3Z" fill="#2563EB"/>
-          </svg>
+          <span class="preview-label" style="color:#64748B">DARK</span>
+          <img src="logo-v2-c.svg" alt="Coluna on dark">
         </div>
         <div class="preview-cell light">
-          <span class="bg-label">Light</span>
-          <svg viewBox="0 0 64 64">
-            <circle cx="32" cy="32" r="29" fill="none" stroke="#2563EB" stroke-width="1.5" opacity="0.15"/>
-            <path d="M32 3 C33.5 14, 38 22, 44 26 C50 28, 56 30, 60 32 C56 34, 50 36, 44 38 C38 42, 33.5 50, 32 57 C30.5 50, 26 42, 20 38 C14 36, 8 34, 4 32 C8 30, 14 28, 20 26 C26 22, 30.5 14, 32 3Z" fill="#2563EB"/>
-          </svg>
+          <span class="preview-label">LIGHT</span>
+          <img src="logo-v2-c.svg" alt="Coluna on light">
         </div>
       </div>
-
-      <!-- Gradient -->
-      <div class="variant-label">Gradient -- Blue to Cyan</div>
-      <div class="preview-row">
-        <div class="preview-cell dark">
-          <span class="bg-label">Dark</span>
-          <svg viewBox="0 0 64 64">
-            <defs>
-              <linearGradient id="cc-grad-d" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#2563EB"/>
-                <stop offset="100%" stop-color="#06B6D4"/>
-              </linearGradient>
-            </defs>
-            <circle cx="32" cy="32" r="29" fill="none" stroke="url(#cc-grad-d)" stroke-width="1.5" opacity="0.25"/>
-            <path d="M32 3 C33.5 14, 38 22, 44 26 C50 28, 56 30, 60 32 C56 34, 50 36, 44 38 C38 42, 33.5 50, 32 57 C30.5 50, 26 42, 20 38 C14 36, 8 34, 4 32 C8 30, 14 28, 20 26 C26 22, 30.5 14, 32 3Z" fill="url(#cc-grad-d)"/>
-          </svg>
-        </div>
-        <div class="preview-cell light">
-          <span class="bg-label">Light</span>
-          <svg viewBox="0 0 64 64">
-            <defs>
-              <linearGradient id="cc-grad-l" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#2563EB"/>
-                <stop offset="100%" stop-color="#06B6D4"/>
-              </linearGradient>
-            </defs>
-            <circle cx="32" cy="32" r="29" fill="none" stroke="url(#cc-grad-l)" stroke-width="1.5" opacity="0.15"/>
-            <path d="M32 3 C33.5 14, 38 22, 44 26 C50 28, 56 30, 60 32 C56 34, 50 36, 44 38 C38 42, 33.5 50, 32 57 C30.5 50, 26 42, 20 38 C14 36, 8 34, 4 32 C8 30, 14 28, 20 26 C26 22, 30.5 14, 32 3Z" fill="url(#cc-grad-l)"/>
-          </svg>
-        </div>
+      <div class="sizes">
+        <div class="size-item"><img src="logo-v2-c.svg" width="80" height="80"><span>80px</span></div>
+        <div class="size-item"><img src="logo-v2-c.svg" width="48" height="48"><span>48px</span></div>
+        <div class="size-item"><img src="logo-v2-c.svg" width="32" height="32"><span>32px</span></div>
+        <div class="size-item"><img src="logo-v2-c.svg" width="16" height="16"><span>16px</span></div>
       </div>
-
-      <!-- Size test -->
-      <div class="size-test">
-        <div class="size-item">
-          <svg viewBox="0 0 64 64" width="128" height="128">
-            <circle cx="32" cy="32" r="29" fill="none" stroke="#2563EB" stroke-width="1.5" opacity="0.2"/>
-            <path d="M32 3 C33.5 14, 38 22, 44 26 C50 28, 56 30, 60 32 C56 34, 50 36, 44 38 C38 42, 33.5 50, 32 57 C30.5 50, 26 42, 20 38 C14 36, 8 34, 4 32 C8 30, 14 28, 20 26 C26 22, 30.5 14, 32 3Z" fill="#2563EB"/>
-          </svg>
-          <span>128px</span>
-        </div>
-        <div class="size-item">
-          <svg viewBox="0 0 64 64" width="64" height="64">
-            <circle cx="32" cy="32" r="29" fill="none" stroke="#2563EB" stroke-width="1.5" opacity="0.2"/>
-            <path d="M32 3 C33.5 14, 38 22, 44 26 C50 28, 56 30, 60 32 C56 34, 50 36, 44 38 C38 42, 33.5 50, 32 57 C30.5 50, 26 42, 20 38 C14 36, 8 34, 4 32 C8 30, 14 28, 20 26 C26 22, 30.5 14, 32 3Z" fill="#2563EB"/>
-          </svg>
-          <span>64px</span>
-        </div>
-        <div class="size-item">
-          <svg viewBox="0 0 64 64" width="32" height="32">
-            <path d="M32 3 C33.5 14, 38 22, 44 26 C50 28, 56 30, 60 32 C56 34, 50 36, 44 38 C38 42, 33.5 50, 32 57 C30.5 50, 26 42, 20 38 C14 36, 8 34, 4 32 C8 30, 14 28, 20 26 C26 22, 30.5 14, 32 3Z" fill="#2563EB"/>
-          </svg>
-          <span>32px</span>
-        </div>
-        <div class="size-item">
-          <svg viewBox="0 0 64 64" width="16" height="16">
-            <path d="M32 3 C33.5 14, 38 22, 44 26 C50 28, 56 30, 60 32 C56 34, 50 36, 44 38 C38 42, 33.5 50, 32 57 C30.5 50, 26 42, 20 38 C14 36, 8 34, 4 32 C8 30, 14 28, 20 26 C26 22, 30.5 14, 32 3Z" fill="#2563EB"/>
-          </svg>
-          <span>16px</span>
-        </div>
+      <div class="lockup">
+        <img src="logo-v2-c.svg" alt="">
+        <span>Luiz Henrique</span>
+      </div>
+      <div class="meaning">
+        <strong>Sistema Nervoso Central:</strong> A coluna vertebral (linha vertical central grossa) é o eixo — é VOCÊ. L ramifica para a esquerda, H para a direita. Os nós azuis na coluna são os pontos de decisão. Os nós cyan nas extremidades são as 7 áreas que se conectam ao sistema. Autenticidade = a coluna é real, estrutural, não decoração.
       </div>
     </div>
 
-  </section>
-
-  <!-- ============================================= -->
-  <!-- HORIZONTAL LOCKUPS                            -->
-  <!-- ============================================= -->
-
-  <section class="lockup-section">
-    <h2>Horizontal Lockups</h2>
-    <div class="lockup-grid">
-
-      <!-- Lockup A -->
-      <div class="lockup-card">
-        <div class="lockup-label">Concept A -- Ascensao</div>
-        <div class="lockup-preview on-dark">
-          <svg viewBox="0 0 64 64">
-            <path d="M20 56 C14 44, 10 30, 14 18 C17 10, 24 6, 30 10 C36 14, 34 26, 28 38 C24 46, 22 52, 20 56Z" fill="#2563EB"/>
-            <path d="M44 8 C50 20, 54 34, 50 46 C47 54, 40 58, 34 54 C28 50, 30 38, 36 26 C40 18, 42 12, 44 8Z" fill="#2563EB"/>
-          </svg>
-          <span class="lockup-text">Luiz Henrique</span>
-        </div>
-        <div class="lockup-preview on-light">
-          <svg viewBox="0 0 64 64">
-            <path d="M20 56 C14 44, 10 30, 14 18 C17 10, 24 6, 30 10 C36 14, 34 26, 28 38 C24 46, 22 52, 20 56Z" fill="#2563EB"/>
-            <path d="M44 8 C50 20, 54 34, 50 46 C47 54, 40 58, 34 54 C28 50, 30 38, 36 26 C40 18, 42 12, 44 8Z" fill="#2563EB"/>
-          </svg>
-          <span class="lockup-text">Luiz Henrique</span>
-        </div>
-      </div>
-
-      <!-- Lockup B -->
-      <div class="lockup-card">
-        <div class="lockup-label">Concept B -- Fluxo Continuo</div>
-        <div class="lockup-preview on-dark">
-          <svg viewBox="0 0 64 64">
-            <path d="M14 10 C14 10, 12 30, 14 44 Q16 54, 24 52 Q30 50, 32 40 Q34 30, 32 20 Q30 10, 36 10 Q42 10, 42 20 L42 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M32 32 Q36 30, 42 32" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M50 10 Q50 32, 50 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-          </svg>
-          <span class="lockup-text">Luiz Henrique</span>
-        </div>
-        <div class="lockup-preview on-light">
-          <svg viewBox="0 0 64 64">
-            <path d="M14 10 C14 10, 12 30, 14 44 Q16 54, 24 52 Q30 50, 32 40 Q34 30, 32 20 Q30 10, 36 10 Q42 10, 42 20 L42 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M32 32 Q36 30, 42 32" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M50 10 Q50 32, 50 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
-          </svg>
-          <span class="lockup-text">Luiz Henrique</span>
-        </div>
-      </div>
-
-      <!-- Lockup C -->
-      <div class="lockup-card">
-        <div class="lockup-label">Concept C -- Estrela Persistente</div>
-        <div class="lockup-preview on-dark">
-          <svg viewBox="0 0 64 64">
-            <circle cx="32" cy="32" r="29" fill="none" stroke="#2563EB" stroke-width="1.5" opacity="0.2"/>
-            <path d="M32 3 C33.5 14, 38 22, 44 26 C50 28, 56 30, 60 32 C56 34, 50 36, 44 38 C38 42, 33.5 50, 32 57 C30.5 50, 26 42, 20 38 C14 36, 8 34, 4 32 C8 30, 14 28, 20 26 C26 22, 30.5 14, 32 3Z" fill="#2563EB"/>
-          </svg>
-          <span class="lockup-text">Luiz Henrique</span>
-        </div>
-        <div class="lockup-preview on-light">
-          <svg viewBox="0 0 64 64">
-            <circle cx="32" cy="32" r="29" fill="none" stroke="#2563EB" stroke-width="1.5" opacity="0.15"/>
-            <path d="M32 3 C33.5 14, 38 22, 44 26 C50 28, 56 30, 60 32 C56 34, 50 36, 44 38 C38 42, 33.5 50, 32 57 C30.5 50, 26 42, 20 38 C14 36, 8 34, 4 32 C8 30, 14 28, 20 26 C26 22, 30.5 14, 32 3Z" fill="#2563EB"/>
-          </svg>
-          <span class="lockup-text">Luiz Henrique</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================= -->
-  <!-- DESIGN NOTES                                  -->
-  <!-- ============================================= -->
-
-  <section class="notes">
-    <h2>Design Notes -- v2 Curved &amp; Organic Direction</h2>
-    <ul>
-      <li><strong>Concept A "Ascensao"</strong> -- Two interlocking crescents built entirely with cubic bezier curves. The left crescent rises from bottom-left, the right descends from top-right. Together they create a dynamic yin-yang movement that subtly suggests "LH" in the negative space between the forms. The upward visual energy represents rising from the Complexo da Mare to the tech elite. Most versatile concept -- works equally well as favicon and at large scale.</li>
-      <li><strong>Concept B "Fluxo Continuo"</strong> -- A single unbroken stroke using quadratic and cubic bezier curves. The line never breaks, representing persistence and resilience -- what never stops, never fails. The flowing path traces an abstract "LH" as one continuous gesture, like a personal signature. The rounded stroke-linecap adds warmth and authenticity. Best concept for personal branding contexts where approachability matters.</li>
-      <li><strong>Concept C "Estrela Persistente"</strong> -- A 4-pointed star with deliberately asymmetric proportions: the top point reaches higher (ambition, persistence) while the bottom is shorter but grounded (solid foundations, origin). All star edges use smooth cubic bezier curves for an organic feel rather than sharp geometric points. Contained in a subtle circle inspired by CryptoGen's clean containment approach. Strongest concept for app icons and social media profile images.</li>
-      <li><strong>Curve philosophy:</strong> All three concepts use exclusively cubic (C) and quadratic (Q) bezier commands in SVG paths. No rectangles, straight lines, or geometric primitives. Every edge flows and breathes. The visual language is fluid, organic, and alive -- reflecting authenticity over rigidity.</li>
-      <li><strong>Color strategy:</strong> Base form uses single flat fill #2563EB (no gradients in primary version). The gradient variant applies the brand gradient (#2563EB to #06B6D4) for digital contexts where more visual energy is needed. Both pass WCAG AA contrast ratios on dark (#0A0E1A) and light (#F8FAFC) backgrounds.</li>
-      <li><strong>Scalability:</strong> All concepts use viewBox="0 0 64 64" for compact, resolution-independent rendering. Tested at 128px (hero), 64px (navigation), 32px (toolbar), and 16px (favicon). Concept A and C maintain clarity at 16px. Concept B may benefit from slightly thicker strokes at the smallest size.</li>
-    </ul>
-  </section>
+  </div>
+</div>
 
 </body>
 </html>
