@@ -39,6 +39,16 @@
       overflow: hidden;
       background: var(--bg-void);
       padding: 80px 48px;
+      /* Compensar o margin-left do .main para centralizar no viewport */
+      margin-left: -260px;
+      width: calc(100% + 260px);
+    }
+
+    @media (max-width: 1024px) {
+      .logo-hero { margin-left: -220px; width: calc(100% + 220px); }
+    }
+    @media (max-width: 768px) {
+      .logo-hero { margin-left: 0; width: 100%; padding: 60px 24px; }
     }
 
     .logo-hero::before {
