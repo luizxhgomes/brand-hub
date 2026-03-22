@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>LH -- Fluxo Continuo</title>
+  <!-- Single unbroken flowing path that traces the abstract LH as one continuous gesture -->
+  <path d="
+    M14 10
+    C14 10, 12 30, 14 44
+    Q16 54, 24 52
+    Q30 50, 32 40
+    Q34 30, 32 20
+    Q30 10, 36 10
+    Q42 10, 42 20
+    L42 52
+  " stroke="#2563EB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- H crossbar flowing from the shared vertical -->
+  <path d="M32 32 Q36 30, 42 32" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Right vertical of H -->
+  <path d="M50 10 Q50 32, 50 52" stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none"/>
+</svg>

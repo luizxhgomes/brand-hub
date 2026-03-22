@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>LH -- Ascensao</title>
+  <!-- Left crescent: flows upward from bottom-left, curves inward -->
+  <path d="M20 56 C14 44, 10 30, 14 18 C17 10, 24 6, 30 10 C36 14, 34 26, 28 38 C24 46, 22 52, 20 56Z" fill="#2563EB"/>
+  <!-- Right crescent: flows downward from top-right, curves inward — mirror dance -->
+  <path d="M44 8 C50 20, 54 34, 50 46 C47 54, 40 58, 34 54 C28 50, 30 38, 36 26 C40 18, 42 12, 44 8Z" fill="#2563EB"/>
+</svg>
