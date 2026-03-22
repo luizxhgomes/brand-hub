@@ -1,19 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <title>LH -- Estrela Persistente</title>
-  <!-- Subtle circle container -->
-  <circle cx="32" cy="32" r="29" fill="none" stroke="#2563EB" stroke-width="1.5" opacity="0.2"/>
-  <!-- 4-pointed star: top point elongated (persistence/ambition), bottom grounded -->
-  <!-- All edges use smooth bezier curves for organic feel -->
-  <path d="
-    M32 3
-    C33.5 14, 38 22, 44 26
-    C50 28, 56 30, 60 32
-    C56 34, 50 36, 44 38
-    C38 42, 33.5 50, 32 57
-    C30.5 50, 26 42, 20 38
-    C14 36, 8 34, 4 32
-    C8 30, 14 28, 20 26
-    C26 22, 30.5 14, 32 3
-    Z
-  " fill="#2563EB"/>
+  <title>LH — Monograma Unificado</title>
+  <!-- LH monogram where L and H share a vertical stroke -->
+  <!-- Smooth rounded ends, SalesFlow-inspired weight -->
+  <!-- L vertical -->
+  <path d="M11 8 Q11 6, 13 6 Q15 6, 15 8 L15 50 Q15 54, 19 54 L25 54 Q27 54, 27 52 Q27 50, 25 50 L19 50 Q17 50, 17 48 L17 8 Q17 6, 15 6" fill="#2563EB"/>
+  <!-- H left vertical (shared proximity with L) -->
+  <path d="M27 6 Q29 6, 29 8 L29 52 Q29 54, 31 54 Q33 54, 33 52 L33 8 Q33 6, 31 6 Q29 6, 29 8Z" fill="#2563EB"/>
+  <!-- H crossbar -->
+  <path d="M29 28 L49 28 L49 34 L29 34Z" rx="3" fill="#2563EB"/>
+  <!-- H right vertical -->
+  <path d="M45 6 Q47 6, 47 8 L47 52 Q47 54, 49 54 Q51 54, 51 52 L51 8 Q51 6, 49 6 Q47 6, 47 8Z" fill="#2563EB"/>
 </svg>
