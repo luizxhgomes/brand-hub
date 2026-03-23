@@ -116,7 +116,9 @@
       easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 2
+      touchMultiplier: 2,
+      wrapper: document.querySelector('.main'),
+      content: document.querySelector('.main')
     });
 
     function raf(time) {
