@@ -616,14 +616,15 @@ a:hover { color: var(--electric-blue); }
 /* ===================================================
    TIMELINE
    =================================================== */
-.timeline { position: relative; padding-left: 28px; }
+.timeline { position: relative; padding-left: 36px; }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 8px; top: 6px; bottom: 6px;
+  left: 13px; top: 6px; bottom: 6px;
   width: 2px;
   background: linear-gradient(180deg, var(--bright-cyan) 0%, var(--vivid-purple) 50%, rgba(236,72,153,0.1) 100%);
+  border-radius: 2px;
 }
 
 .timeline-item { position: relative; margin-bottom: 24px; }
@@ -631,12 +632,13 @@ a:hover { color: var(--electric-blue); }
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: -24px; top: 6px;
-  width: 14px; height: 14px;
+  box-sizing: border-box;
+  left: -30px; top: 4px;
+  width: 16px; height: 16px;
   background: var(--bright-cyan);
   border: 2px solid var(--midnight);
   border-radius: 50%;
-  box-shadow: 0 0 0 3px rgba(6,182,212,0.2);
+  box-shadow: 0 0 0 3px rgba(6,182,212,0.22);
 }
 
 .timeline-year {
