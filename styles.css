@@ -956,3 +956,272 @@ a:hover { color: var(--electric-blue); }
     scroll-behavior: auto !important;
   }
 }
+
+/* ===================================================
+   ANIMAÇÕES BRANDBOOK v6.1.3 — efeitos ricos
+   =================================================== */
+
+/* Hero badge pulsante */
+.hero-badge::before {
+  content: '';
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--success-green);
+  box-shadow: 0 0 8px var(--success-green);
+  animation: blink 2s ease-in-out infinite;
+  margin-right: 4px;
+}
+
+/* Título principal: gradiente shimmer animado */
+.page-header h1 {
+  position: relative;
+}
+.page-header h1 .gradient,
+.gradient-text,
+h1.gradient,
+h2.gradient {
+  background: var(--gradient-text);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+
+/* Card base: gradient border no hover (efeito do BRANDBOOK) */
+.card, .stat-card, .story-block {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::after,
+.stat-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--gradient-border);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+.card:hover::after,
+.stat-card:hover::after { opacity: 1; }
+
+/* Stat card com halo colorido no hover (rotaciona entre cores v6) */
+.grid-4 > .stat-card:nth-child(1):hover { box-shadow: 0 0 32px rgba(59,130,246,0.35); }
+.grid-4 > .stat-card:nth-child(2):hover { box-shadow: 0 0 32px rgba(6,182,212,0.35); }
+.grid-4 > .stat-card:nth-child(3):hover { box-shadow: 0 0 32px rgba(139,92,246,0.35); }
+.grid-4 > .stat-card:nth-child(4):hover { box-shadow: 0 0 32px rgba(236,72,153,0.35); }
+
+/* Stat value com shimmer sutil */
+.stat-value {
+  background: var(--gradient-primary);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 8s linear infinite;
+}
+
+/* Cards com número gigante de fundo (como framework-card do BRANDBOOK) */
+.card[data-num]::before,
+.system-card::before {
+  display: none;
+}
+
+/* Pilares/Framework cards com accent no topo */
+.grid-3 > .card,
+.grid-2 > .card {
+  position: relative;
+}
+.grid-3 > .card::before,
+.grid-2 > .card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 500ms var(--ease);
+  z-index: 2;
+}
+.grid-3 > .card:nth-child(6n+1)::before { background: linear-gradient(90deg, var(--electric-blue), var(--bright-cyan)); }
+.grid-3 > .card:nth-child(6n+2)::before { background: linear-gradient(90deg, var(--bright-cyan), var(--vivid-purple)); }
+.grid-3 > .card:nth-child(6n+3)::before { background: linear-gradient(90deg, var(--vivid-purple), var(--neon-pink)); }
+.grid-3 > .card:nth-child(6n+4)::before { background: linear-gradient(90deg, var(--neon-pink), var(--hot-orange)); }
+.grid-3 > .card:nth-child(6n+5)::before { background: linear-gradient(90deg, var(--hot-orange), var(--success-green)); }
+.grid-3 > .card:nth-child(6n+6)::before { background: linear-gradient(90deg, var(--success-green), var(--electric-blue)); }
+.grid-3 > .card:hover::before,
+.grid-2 > .card:hover::before { transform: scaleX(1); }
+
+/* Quote block com mesh rotativo (conic-gradient) */
+.quote-block {
+  position: relative;
+  overflow: hidden;
+}
+.quote-block::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(6,182,212,0.08), transparent 30%);
+  animation: rotateGradient 18s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.quote-block > * { position: relative; z-index: 1; }
+
+/* System card (sistemas.html) com gradient border no topo */
+.system-card {
+  position: relative;
+  overflow: hidden;
+}
+.system-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient-electric);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 500ms var(--ease);
+}
+.system-card:hover::before { transform: scaleX(1); }
+.system-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--glow-cyan);
+  border-color: var(--bright-cyan);
+}
+
+/* Hover nos tabs */
+.tab {
+  position: relative;
+  overflow: hidden;
+}
+.tab::before {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 2px;
+  background: var(--gradient-primary);
+  transition: width 300ms var(--ease);
+}
+.tab:hover::before { width: 100%; }
+.tab.active::before { width: 100%; }
+
+/* Sidebar navigation com slide colorido no hover */
+.sidebar-nav a {
+  position: relative;
+  overflow: hidden;
+}
+.sidebar-nav a::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--gradient-primary);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 300ms var(--ease);
+}
+.sidebar-nav a:hover::before { transform: scaleY(1); }
+.sidebar-nav a.active::before { transform: scaleY(1); }
+
+/* Voice meter fill com shine (luz passando) */
+.voice-meter-fill {
+  position: relative;
+  overflow: hidden;
+}
+.voice-meter-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: translateX(-100%);
+  animation: shine 3s ease-in-out infinite;
+}
+
+/* Section divider accent expandindo */
+.section-divider::after {
+  animation: expandWidth 1s var(--ease) forwards;
+}
+
+/* Badges com pulse no active */
+.badge {
+  transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
+}
+.badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Timeline item dot com pulse */
+.timeline-item::before {
+  animation: pulseDot 3s ease-in-out infinite;
+}
+.timeline-item:nth-child(even)::before { animation-delay: 0.5s; }
+.timeline-item:nth-child(3n)::before { animation-delay: 1s; }
+
+/* Novos keyframes */
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  50%, 100% { transform: translateX(100%); }
+}
+
+@keyframes expandWidth {
+  from { width: 0; }
+  to { width: 80px; }
+}
+
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(6,182,212,0.2); }
+  50% { box-shadow: 0 0 0 6px rgba(6,182,212,0.1), 0 0 16px rgba(6,182,212,0.4); }
+}
+
+/* Tabs transição de tab-content */
+.tab-content {
+  animation: fadeSlide 500ms var(--ease);
+}
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Story blocks com accent lateral animado */
+.story-block {
+  transition: transform 300ms var(--ease), background 300ms var(--ease), border-left-color 300ms var(--ease);
+}
+.story-block:hover {
+  transform: translateX(4px);
+  border-left-color: var(--vivid-purple);
+  background: rgba(59,130,246,0.05);
+}
+
+/* Cal-table row highlight */
+.cal-table tr {
+  transition: background 200ms var(--ease);
+}
+.cal-table tr:hover {
+  background: rgba(59,130,246,0.05);
+}
+
+/* Hero glow com duas camadas overlap para profundidade */
+.hero-orbs::after {
+  content: '';
+  position: absolute;
+  top: 20%; right: 15%;
+  width: 240px; height: 240px;
+  background: var(--bright-cyan);
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.12;
+  animation: float 11s ease-in-out infinite reverse;
+  pointer-events: none;
+}
