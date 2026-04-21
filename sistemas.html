@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistemas em Produção, Brand Hub</title>
-  <link rel="stylesheet" href="styles.css?v=6.1.4">
+  <link rel="stylesheet" href="styles.css?v=6.1.5">
   <style>
     .system-card {
       background: var(--gradient-card);
@@ -93,10 +93,98 @@
       50% { opacity: 0.4; }
     }
     .system-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
       font-size: 12px;
-      color: var(--brand-cyan);
-      font-weight: 600;
+      color: var(--bright-cyan);
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: color 300ms var(--ease), transform 300ms var(--ease);
     }
+    .system-link.is-private {
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 10px;
+    }
+    .system-link-icon {
+      transition: transform 300ms var(--ease);
+    }
+
+    /* Card clicável (is-linkable) */
+    a.system-card.is-linkable {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      display: block;
+      position: relative;
+    }
+    a.system-card.is-linkable::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.05), rgba(236,72,153,0.06));
+      opacity: 0;
+      transition: opacity 400ms var(--ease);
+      pointer-events: none;
+      z-index: 0;
+    }
+    a.system-card.is-linkable > * { position: relative; z-index: 1; }
+
+    a.system-card.is-linkable:hover {
+      transform: translateY(-6px);
+      border-color: var(--bright-cyan);
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6),
+                  0 0 0 1px rgba(6,182,212,0.25),
+                  0 0 32px rgba(6,182,212,0.25),
+                  0 0 64px rgba(139,92,246,0.15);
+    }
+    a.system-card.is-linkable:hover::after { opacity: 1; }
+    a.system-card.is-linkable:hover::before {
+      height: 4px;
+      animation: systemBorderPulse 1.2s ease-in-out infinite;
+    }
+
+    a.system-card.is-linkable:hover .system-link {
+      color: var(--white);
+      transform: translateX(3px);
+    }
+    a.system-card.is-linkable:hover .system-link-icon {
+      transform: translate(3px, -3px) rotate(0deg);
+      animation: arrowPing 0.8s ease-out infinite;
+    }
+    a.system-card.is-linkable:hover .system-name {
+      background: var(--gradient-text);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s linear infinite;
+    }
+
+    a.system-card.is-linkable:active {
+      transform: translateY(-2px);
+      transition-duration: 100ms;
+    }
+
+    a.system-card.is-linkable:focus-visible {
+      outline: 2px solid var(--bright-cyan);
+      outline-offset: 4px;
+    }
+
+    @keyframes arrowPing {
+      0% { transform: translate(3px, -3px); opacity: 1; }
+      100% { transform: translate(7px, -7px); opacity: 0.6; }
+    }
+
+    @keyframes systemBorderPulse {
+      0%, 100% { opacity: 1; filter: brightness(1); }
+      50% { opacity: 0.85; filter: brightness(1.3); }
+    }
+
     .highlight-card {
       grid-column: span 2;
       border-color: rgba(124,58,237,0.3);
@@ -110,6 +198,11 @@
     }
     @media (max-width: 900px) {
       .highlight-card { grid-column: span 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      a.system-card.is-linkable:hover .system-link-icon { animation: none; }
+      a.system-card.is-linkable:hover .system-name { animation: none; }
+      a.system-card.is-linkable:hover::before { animation: none; }
     }
   </style>
 </head>
@@ -208,7 +301,7 @@
     <div class="grid-2" style="margin-bottom:24px;">
 
       <!-- OUTBILI -->
-      <div class="system-card">
+      <a href="https://v4bilinski.github.io/outbili/#/institucional" target="_blank" rel="noopener noreferrer" class="system-card is-linkable" aria-label="Acessar OUTBILI em nova aba">
         <div class="system-num">02</div>
         <div class="system-name">OUTBILI</div>
         <div class="system-category">Inteligência comercial e prospecção B2B</div>
@@ -218,12 +311,15 @@
         <div class="system-stack">Stack: React 19 + TypeScript + Vite &middot; Cloudflare Workers (proxy OAuth2) &middot; Airtable &middot; CNPJa API &middot; Assertiva API &middot; BilinskiZap API</div>
         <div class="system-footer">
           <span class="system-status">EM PRODUÇÃO</span>
-          <span class="system-link">v4bilinski.github.io/outbili</span>
+          <span class="system-link">
+            v4bilinski.github.io/outbili
+            <svg class="system-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </span>
         </div>
-      </div>
+      </a>
 
       <!-- BILINSKIZAP -->
-      <div class="system-card">
+      <a href="https://bilinskizap-bilinski.vercel.app/login" target="_blank" rel="noopener noreferrer" class="system-card is-linkable" aria-label="Acessar BilinskiZap em nova aba">
         <div class="system-num">03</div>
         <div class="system-name">BilinskiZap</div>
         <div class="system-category">Automação WhatsApp com IA integrada</div>
@@ -233,12 +329,15 @@
         <div class="system-stack">Stack: API Oficial Meta &middot; PWA &middot; Agents com memória persistente &middot; Templates sincronizados Meta</div>
         <div class="system-footer">
           <span class="system-status">EM PRODUÇÃO</span>
-          <span class="system-link">Produto V4 Bilinski</span>
+          <span class="system-link">
+            bilinskizap-bilinski.vercel.app
+            <svg class="system-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </span>
         </div>
-      </div>
+      </a>
 
       <!-- KEYRA -->
-      <div class="system-card">
+      <a href="https://usekeyra.vercel.app/" target="_blank" rel="noopener noreferrer" class="system-card is-linkable" aria-label="Acessar Keyra em nova aba">
         <div class="system-num">04</div>
         <div class="system-name">Keyra</div>
         <div class="system-category">Financeiro operacional para estética</div>
@@ -248,9 +347,12 @@
         <div class="system-stack">Stack: Next.js 16 (App Router + Server Actions) &middot; Supabase (PostgreSQL com RLS multi-tenant) &middot; Vercel &middot; Inngest &middot; Stripe &middot; Asaas</div>
         <div class="system-footer">
           <span class="system-status">EM PRODUÇÃO</span>
-          <span class="system-link">usekeyra.vercel.app</span>
+          <span class="system-link">
+            usekeyra.vercel.app
+            <svg class="system-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </span>
         </div>
-      </div>
+      </a>
 
       <!-- SOCIAL MEDIA AI -->
       <div class="system-card">
@@ -263,7 +365,7 @@
         <div class="system-stack">Stack: Next.js 16 + TypeScript + Tailwind + shadcn/ui &middot; Apify (coleta Instagram) &middot; Google Gemini 2.0 Flash (análise multimodal) &middot; Claude Sonnet (geração)</div>
         <div class="system-footer">
           <span class="system-status">EM PRODUÇÃO</span>
-          <span class="system-link">Autoral</span>
+          <span class="system-link is-private">Autoral &middot; privado</span>
         </div>
       </div>
 
@@ -278,12 +380,12 @@
         <div class="system-stack">Stack: React 19 + TypeScript &middot; Vite 6 &middot; Tailwind 3 &middot; shadcn/ui &middot; Google Gemini (texto e imagem) &middot; html-to-image &middot; dnd-kit &middot; Apify REST API</div>
         <div class="system-footer">
           <span class="system-status">EM PRODUÇÃO</span>
-          <span class="system-link">Autoral</span>
+          <span class="system-link is-private">Autoral &middot; privado</span>
         </div>
       </div>
 
       <!-- INSIGHTMEET AI -->
-      <div class="system-card">
+      <a href="https://insightmeet-ai-721960084105.us-central1.run.app/" target="_blank" rel="noopener noreferrer" class="system-card is-linkable" aria-label="Acessar InsightMeet AI em nova aba">
         <div class="system-num">07</div>
         <div class="system-name">InsightMeet AI</div>
         <div class="system-category">Análise de linguagem não-verbal em reuniões</div>
@@ -293,9 +395,12 @@
         <div class="system-stack">Stack: GCP Cloud Run &middot; análise comportamental em tempo real &middot; integração Google Meet &middot; pipeline multimodal</div>
         <div class="system-footer">
           <span class="system-status">EM PRODUÇÃO</span>
-          <span class="system-link">insightmeet-ai-721960084105.us-central1.run.app</span>
+          <span class="system-link">
+            insightmeet-ai.run.app
+            <svg class="system-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </span>
         </div>
-      </div>
+      </a>
 
     </div>
 
@@ -346,6 +451,7 @@
   </div>
 </div>
 
-<script src="animations.js?v=6.1.4"></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="animations.js?v=6.1.5"></script>
 </body>
 </html>
