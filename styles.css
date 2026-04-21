@@ -1581,3 +1581,40 @@ a.card.card-link:focus-visible {
   a.card.card-link:hover .card-ext { animation: none; transform: translate(0,0); }
   a.card.card-link:hover h3 { animation: none; }
 }
+
+/* ===================================================
+   FALLBACK: garante que elementos reveal sempre apareçam
+   mesmo se o JS falhar (tolerância de 1.5s)
+   =================================================== */
+@keyframes revealFallback {
+  to { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+
+.reveal {
+  animation: revealFallback 800ms var(--ease) 1500ms forwards;
+}
+.reveal.visible {
+  animation: none;
+}
+.reveal-left {
+  animation: revealFallback 900ms var(--ease) 1500ms forwards;
+}
+.reveal-right {
+  animation: revealFallback 900ms var(--ease) 1500ms forwards;
+}
+.reveal-scale {
+  animation: revealFallback 800ms var(--ease) 1500ms forwards;
+}
+
+/* Elementos do hero (primeira dobra) nunca escondidos */
+.hero-top-row,
+.hero h1,
+.hero .hero-sub,
+.hero-stats,
+.page-header h1,
+.page-header .subtitle,
+.breadcrumb {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
